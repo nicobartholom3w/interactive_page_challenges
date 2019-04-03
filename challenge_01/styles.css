@@ -29,7 +29,12 @@ html, body {
   width: 100%;
   border: solid 2px #5895ff;
   cursor: pointer;
-  padding: 0; }
+  padding: 0;
+  outline: none; }
+  .button:hover:not(:focus) {
+    background-color: #deeafa; }
+  .button:focus {
+    box-shadow: 0 0 0 2px rgba(116, 185, 255, 0.5); }
   .button__price {
     border-right: solid 1px #5895ff;
     border-radius: .25rem 0 0 .25rem;

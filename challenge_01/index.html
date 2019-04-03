@@ -15,10 +15,10 @@
     -->
 
     <div class="card">
-    	<div class="options__desktop">
-    		<button class="button button__price">Sort by price</button>
-    		<button class="button button__name">Sort by name</button>
-    		<button class="button button__relevance">Sort by relevance</button>
+    	<div class="options__desktop" role="radiogroup" aria-labelledby="card">
+    		<button class="button button__price" role="radio" aria-checked="false">Sort by price</button>
+    		<button class="button button__name" role="radio" aria-checked="false">Sort by name</button>
+    		<button class="button button__relevance" role="radio" aria-checked="false">Sort by relevance</button>
     	</div>
     	<div class="options__mobile">
     		<select name="sortingpulldown" id="sorting__pulldown">
