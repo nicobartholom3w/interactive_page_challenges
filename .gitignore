@@ -2,3 +2,5 @@ design
 .DS_Store
 source
 *.zip
+.sass-cache/
+styles.css.map

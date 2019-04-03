@@ -15,20 +15,11 @@
     -->
 
     <div class="card">
-    	<form name="sortingform" class="form" action="sorting" method="post">
-			<div class="button button__price">
-				<input type="radio" id="price-sort" class="button__radio" name="sortingby" value="price">
-					<label for="price-sort">Sort by price</label>
-			</div>
-			<div class="button button__name">
-				<input type="radio" id="name-sort" class="button__radio" name="sortingby" value="name">
-					<label for="name-sort">Sort by name</label>
-			</div>
-			<div class="button button__relevance">
-				<input type="radio" id="relevance-sort" class="button__radio" name="sortingby" value="relevance">
-					<label for="relevance-sort">Sort by relevance</label>
-			</div>
-    	</form>
+    	<div class="options">
+    		<button class="button button__price">Sort by price</button>
+    		<button class="button button__name">Sort by name</button>
+    		<button class="button button__relevance">Sort by relevance</button>
+    	</div>
     </div>
 </body>
 </html>

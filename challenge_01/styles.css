@@ -15,32 +15,32 @@ html, body {
   border: solid 1px #dedede;
   box-sizing: border-box; }
 
-.form {
-  height: 3rem;
-  width: 20rem;
+.options {
+  height: 2.5rem;
+  width: 18.75rem;
   display: flex;
   align-items: center;
   font-size: .75rem;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin: 1.25rem 1.25rem 0; }
 
 .button {
   height: 100%;
   width: 100%;
   border: solid 2px #5895ff;
   cursor: pointer;
-  background-color: pink; }
-  .button__radio {
-    position: fixed;
-    opacity: 0;
-    cursor: pointer;
-    padding: 100%;
-    background-color: blue; }
+  padding: 0; }
   .button__price {
-    border-right: solid 1px #5895ff; }
+    border-right: solid 1px #5895ff;
+    border-radius: .25rem 0 0 .25rem;
+    width: 30%; }
   .button__name {
     border-left: solid 1px #5895ff;
-    border-right: solid 1px #5895ff; }
+    border-right: solid 1px #5895ff;
+    width: 30%; }
   .button__relevance {
-    border-left: solid 1px #5895ff; }
+    border-left: solid 1px #5895ff;
+    border-radius: 0 .25rem .25rem 0;
+    width: 40%; }
 
 /*# sourceMappingURL=styles.css.map */

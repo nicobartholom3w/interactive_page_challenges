@@ -18,13 +18,14 @@ html, body {
 	box-sizing: border-box;
 }
 
-.form {
-	height: 3rem;
-	width: 20rem;
+.options {
+	height: 2.5rem;
+	width: 18.75rem;
 	display: flex;
 	align-items: center;
 	font-size: .75rem;
 	box-sizing: border-box;
+	margin: 1.25rem 1.25rem 0;
 }
 
 .button {
@@ -32,26 +33,23 @@ html, body {
 	width: 100%;
 	border: solid 2px rgb(88, 149, 255);
 	cursor: pointer;
-	background-color: pink;
-
-	&__radio {
-		position: fixed;
-		opacity: 0;
-		cursor: pointer;
-		padding: 100%;
-		background-color: blue;
-	}
+	padding: 0;
 
 	&__price {
 		border-right: solid 1px rgb(88, 149, 255);
+		border-radius: .25rem 0 0 .25rem;
+		width: 30%;
 	}
 
 	&__name {
 		border-left: solid 1px rgb(88, 149, 255);
 		border-right: solid 1px rgb(88, 149, 255);
+		width: 30%;
 	}
 
 	&__relevance {
-		border-left: solid 1px rgb(88, 149, 255);;
+		border-left: solid 1px rgb(88, 149, 255);
+		border-radius: 0 .25rem .25rem 0;
+		width: 40%;
 	}
 }
