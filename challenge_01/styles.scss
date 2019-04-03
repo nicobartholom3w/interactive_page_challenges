@@ -1,0 +1,57 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+	min-width: 100%;
+	font-family: sans-serif;
+	background-color: rgb(116, 185, 255);
+
+}
+
+.card {
+	margin: 6.25rem auto 0;
+	height: 5rem;
+	width: 28rem;
+	background-color: white;
+	border-radius: .25rem;
+	border: solid 1px rgb(222, 222, 222);
+	box-sizing: border-box;
+}
+
+.form {
+	height: 3rem;
+	width: 20rem;
+	display: flex;
+	align-items: center;
+	font-size: .75rem;
+	box-sizing: border-box;
+}
+
+.button {
+	height: 100%;
+	width: 100%;
+	border: solid 2px rgb(88, 149, 255);
+	cursor: pointer;
+	background-color: pink;
+
+	&__radio {
+		position: fixed;
+		opacity: 0;
+		cursor: pointer;
+		padding: 100%;
+		background-color: blue;
+	}
+
+	&__price {
+		border-right: solid 1px rgb(88, 149, 255);
+	}
+
+	&__name {
+		border-left: solid 1px rgb(88, 149, 255);
+		border-right: solid 1px rgb(88, 149, 255);
+	}
+
+	&__relevance {
+		border-left: solid 1px rgb(88, 149, 255);;
+	}
+}

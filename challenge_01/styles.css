@@ -1,0 +1,46 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  min-width: 100%;
+  font-family: sans-serif;
+  background-color: #74b9ff; }
+
+.card {
+  margin: 6.25rem auto 0;
+  height: 5rem;
+  width: 28rem;
+  background-color: white;
+  border-radius: .25rem;
+  border: solid 1px #dedede;
+  box-sizing: border-box; }
+
+.form {
+  height: 3rem;
+  width: 20rem;
+  display: flex;
+  align-items: center;
+  font-size: .75rem;
+  box-sizing: border-box; }
+
+.button {
+  height: 100%;
+  width: 100%;
+  border: solid 2px #5895ff;
+  cursor: pointer;
+  background-color: pink; }
+  .button__radio {
+    position: fixed;
+    opacity: 0;
+    cursor: pointer;
+    padding: 100%;
+    background-color: blue; }
+  .button__price {
+    border-right: solid 1px #5895ff; }
+  .button__name {
+    border-left: solid 1px #5895ff;
+    border-right: solid 1px #5895ff; }
+  .button__relevance {
+    border-left: solid 1px #5895ff; }
+
+/*# sourceMappingURL=styles.css.map */

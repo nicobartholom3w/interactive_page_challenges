@@ -1,12 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Segmented control</title>
+	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  	<link rel="stylesheet" href="./styles.css">
+  	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
     <!--
         Create a segmented control that turns into a <select> for mobile screens.
         They should sync whenever any of them is changed.
     -->
+
+    <div class="card">
+    	<form name="sortingform" class="form" action="sorting" method="post">
+			<div class="button button__price">
+				<input type="radio" id="price-sort" class="button__radio" name="sortingby" value="price">
+					<label for="price-sort">Sort by price</label>
+			</div>
+			<div class="button button__name">
+				<input type="radio" id="name-sort" class="button__radio" name="sortingby" value="name">
+					<label for="name-sort">Sort by name</label>
+			</div>
+			<div class="button button__relevance">
+				<input type="radio" id="relevance-sort" class="button__radio" name="sortingby" value="relevance">
+					<label for="relevance-sort">Sort by relevance</label>
+			</div>
+    	</form>
+    </div>
 </body>
 </html>
