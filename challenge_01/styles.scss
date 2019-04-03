@@ -18,7 +18,7 @@ html, body {
 	box-sizing: border-box;
 }
 
-.options {
+.options__desktop {
 	height: 2.5rem;
 	width: 18.75rem;
 	display: flex;
@@ -51,5 +51,33 @@ html, body {
 		border-left: solid 1px rgb(88, 149, 255);
 		border-radius: 0 .25rem .25rem 0;
 		width: 40%;
+	}
+}
+
+.options__mobile {
+	display: none;
+}
+@media only screen and (max-width: 500px) {
+	.card {
+	}
+
+	.options__desktop {
+		display: none;
+	}
+
+	.options__mobile {
+		display: block;
+	}
+
+	#sorting__pulldown {
+		width: 25.5rem;
+		height: 2.5rem;
+		margin: 1.25rem;
+		border: solid 2px rgb(88, 149, 255);
+		outline: none;
+
+		&:focus {
+			box-shadow: 0 0 0 2px rgba(116, 185, 255, .5);
+		}
 	}
 }
