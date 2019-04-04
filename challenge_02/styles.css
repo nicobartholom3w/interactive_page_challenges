@@ -30,7 +30,7 @@ html, body {
   .num-input:focus {
     border-bottom: solid 2px black; }
 
-.button {
+.submit__button {
   border: none;
   background-color: #f1f1f1;
   border-radius: 2px;
@@ -42,15 +42,15 @@ html, body {
   cursor: pointer;
   position: absolute;
   transition: background-color .3s, bottom .3s; }
-  .button-container {
+  .submit__button-container {
     margin-left: .75rem;
     width: 6.5rem;
     height: 2.75rem;
     display: inline-block;
     position: relative; }
-  .button:hover {
+  .submit__button:hover {
     background-color: #e8e8e8; }
-  .button:active {
+  .submit__button:active {
     bottom: -2px; }
 
 .tabs__buttons {
