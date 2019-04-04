@@ -16,4 +16,91 @@ html, body {
 	border-radius: .25rem;
 	border: solid 1px rgb(222, 222, 222);
 	box-sizing: border-box;
+
+	&__content {
+		margin: 1.75rem 1.25rem;
+	}
+}
+
+.top-row {
+	display: flex;
+}
+
+.num-input {
+	outline: none;
+	width: 17rem;
+	border: none;
+	border-bottom: solid 2px rgb(222, 222,222);
+	font-size: .9rem;
+	line-height: 2.25rem;
+
+	&:focus {
+		border-bottom: solid 2px black;
+	}
+}
+
+.button {
+	border: none;
+	background-color: rgb(241, 241, 241);
+	border-radius: 2px;
+	font-size: .9rem;
+	width: 100%;
+	height: 100%;
+	bottom: 0;
+	outline: none;
+	cursor: pointer;
+	position: absolute;
+	transition: background-color .3s,
+				bottom .3s;
+	
+	&-container {
+		margin-left: .75rem;
+		width: 6.5rem;
+		height: 2.75rem;
+		display: inline-block;
+		position: relative;
+	}
+	&:hover {
+		background-color: rgb(232, 232, 232);
+	}
+
+	&:active {
+		bottom: -2px;
+	}
+}
+
+.tabs {
+
+	&__buttons{
+		display: flex;
+		margin-top: 1.5rem;
+	}
+}
+
+.tab {
+	color: rgb(204, 204, 204);
+	text-transform: uppercase;
+	font-size: .75rem;
+	font-weight: bold;
+	margin-right: .75rem;
+	cursor: pointer;
+	transition: color .3s;
+
+	&:hover {
+		color: black;
+	}
+
+	&-active {
+		color: black;
+	}
+
+	&__content {
+		font-size: .85rem;
+		margin-top: 1rem;
+		display: none;
+
+		&-active {
+			display: block;
+		}
+	}
 }
