@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function(event){
 	function addClickEvent (node){
 		for(let i = 0; i < buttons.length; i++){
 			let button = buttons[i];
-			// let tab = {node, button};
 			button.addEventListener("click", () => selectOption(button));
 		}
 	}
@@ -22,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 			let selected = btn == selectedOption;
 			btn.style.backgroundColor = selected ? "rgb(88, 149, 255)" : "white";
 			btn.style.color = selected ? "white" : "black";
-
+			btn.setAttribute("aria-checked", selected);
 		}
 	}
 
