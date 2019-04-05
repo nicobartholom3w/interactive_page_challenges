@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let tabsContents = Array.from(document.getElementsByClassName("tab__content"));
 	let wholeTabs = [];
 	let tabs = Array.from(document.getElementsByClassName("tab"));
-
+	let submitButton = document.getElementsByClassName("submit__button")[0];
+	let numInput = document.getElementById("numinput-value").value;
 
 	function connectTabs (node){
 		for(let i = 0; i < tabs.length; i++){
@@ -29,6 +30,25 @@ document.addEventListener("DOMContentLoaded", function(event){
 			}
 		}
 	}
+
+	function buttonClicked (currentNumInput) {
+		if(currentNumInput > 3 || currentNumInput < 1) {
+			alert("Index is invalid");
+		}
+		else {
+			// make tabs equal to numbers
+			// put tab that equals number into tabClicked()
+			for (let tab of tabs){
+				let selected = i + 1 == currentNumInput;
+				if(selected) {
+					tabClicked()
+				}
+			}
+		}
+	}
+
+	submitButton.addEventListener("click", () => buttonClicked(numInput));
+
 
 	connectTabs(tabsMenuNode);
 
