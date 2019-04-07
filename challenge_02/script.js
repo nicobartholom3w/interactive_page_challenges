@@ -1,10 +1,11 @@
-document.addEventListener("DOMContentLoaded", function(event){
+
+	document.addEventListener("DOMContentLoaded", function(event){
 	let tabsMenuNode = document.getElementsByClassName("tabs")[0];
 	let tabsContents = Array.from(document.getElementsByClassName("tab__content"));
 	let wholeTabs = [];
 	let tabs = Array.from(document.getElementsByClassName("tab"));
 	let submitButton = document.getElementsByClassName("submit__button")[0];
-	let numInput = document.getElementById("numinput-value").value;
+	
 
 	function connectTabs (node){
 		for(let i = 0; i < tabs.length; i++){
@@ -31,23 +32,17 @@ document.addEventListener("DOMContentLoaded", function(event){
 		}
 	}
 
-	function buttonClicked (currentNumInput) {
-		if(currentNumInput > 3 || currentNumInput < 1) {
+	function buttonClicked () {
+		let numInput = document.getElementById("numInput").valueAsNumber;
+		if(numInput > 3 || numInput < 1) {
 			alert("Index is invalid");
 		}
 		else {
-			// make tabs equal to numbers
-			// put tab that equals number into tabClicked()
-			for (let tab of tabs){
-				let selected = i + 1 == currentNumInput;
-				if(selected) {
-					tabClicked()
-				}
-			}
+			tabClicked(wholeTabs[numInput - 1]);
 		}
 	}
 
-	submitButton.addEventListener("click", () => buttonClicked(numInput));
+	submitButton.addEventListener("click", () => buttonClicked());
 
 
 	connectTabs(tabsMenuNode);
