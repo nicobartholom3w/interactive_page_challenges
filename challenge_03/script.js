@@ -21,13 +21,22 @@ document.addEventListener("DOMContentLoaded", function(event){
 				}
 			}
 			else{
-				randomlyActive();
+				randomlyActive(button, clickedSwitch);
 			}
 		}
 	}
 
-	function randomlyActive() {
-
+	function randomlyActive(button) {
+		if(Math.floor(Math.random() * Math.floor(2)) == 1){
+			if(button.getAttribute("active") == "true"){
+				button.classList.remove("switch__active");
+				button.setAttribute("active", "false");
+			}
+			else {
+				button.classList.add("switch__active");
+				button.setAttribute("active", "true");
+			}
+		}
 	}
 
 	
