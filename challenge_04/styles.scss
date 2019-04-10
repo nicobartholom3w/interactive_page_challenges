@@ -19,19 +19,26 @@ html, body {
 	font-size: .9rem;
 	
 	&__content {
-		margin: 1.5rem 1rem;
+		margin: .5rem 1rem;
+		display: flex;
+		// background-color: purple;
+		box-sizing: border-box;
 	}
 }
 
 .list {
 	height: 4.5rem;
+	width: 10rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	list-style: none;
+	// background-color: pink;
+
 
 	&__item {
 		position: relative;
+		cursor: pointer;
 		color: rgb(139, 139, 139);
 
 		&:before {
@@ -43,7 +50,7 @@ html, body {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			right: 30rem;
+			right: 10.5rem;
 			bottom: -.1rem;
 			font-weight: bold;
 			font-size: .8rem;
@@ -54,11 +61,38 @@ html, body {
 
 		&-active {
 			color: black;
-			
+
 			&:before {
 				background-color: rgb(44, 128, 185);
 				color: white;
 			}
 		}
+	}
+}
+
+.submit {
+	padding: .75rem 3rem;
+	// background-color: blue;
+	width: 19rem;
+	box-sizing: border-box;
+
+	&__content {
+
+
+	}
+}
+
+.button {
+	font-size: .85rem;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background-color: rgb(241, 241, 241);
+	padding: .75rem;
+	border-radius: .25rem;
+	margin: 1.25rem .25rem 0 0;
+
+	&:hover {
+		background-color: rgb(232, 232, 232);
 	}
 }
