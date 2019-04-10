@@ -5,7 +5,7 @@ html, body {
 	min-width: 100%;
 	font-family: sans-serif;
 	background-color: rgb(141, 68, 172);
-
+	counter-reset: custom;
 }
 
 .card {
@@ -16,8 +16,49 @@ html, body {
 	border-radius: .25rem;
 	border: solid 1px rgb(222, 222, 222);
 	box-sizing: border-box;
-
+	font-size: .9rem;
+	
 	&__content {
-		margin: 1.75rem 1.25rem;
+		margin: 1.5rem 1rem;
+	}
+}
+
+.list {
+	height: 4.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	list-style: none;
+
+	&__item {
+		position: relative;
+		color: rgb(139, 139, 139);
+
+		&:before {
+			position: absolute;
+			counter-increment: custom;
+			content: counter(custom);
+			height: 1.25rem;
+			width: 1.25rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			right: 30rem;
+			bottom: -.1rem;
+			font-weight: bold;
+			font-size: .8rem;
+			border-radius: 50%;
+			color: rgb(127, 127, 127);
+			// 
+		}
+
+		&-active {
+			color: black;
+			
+			&:before {
+				background-color: rgb(44, 128, 185);
+				color: white;
+			}
+		}
 	}
 }

@@ -4,7 +4,8 @@ html, body {
   min-height: 100%;
   min-width: 100%;
   font-family: sans-serif;
-  background-color: #8d44ac; }
+  background-color: #8d44ac;
+  counter-reset: custom; }
 
 .card {
   margin: 6.25rem auto 0;
@@ -13,8 +14,39 @@ html, body {
   background-color: white;
   border-radius: .25rem;
   border: solid 1px #dedede;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-size: .9rem; }
   .card__content {
-    margin: 1.75rem 1.25rem; }
+    margin: 1.5rem 1rem; }
+
+.list {
+  height: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  list-style: none; }
+  .list__item {
+    position: relative;
+    color: #8b8b8b; }
+    .list__item:before {
+      position: absolute;
+      counter-increment: custom;
+      content: counter(custom);
+      height: 1.25rem;
+      width: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      right: 30rem;
+      bottom: -.1rem;
+      font-weight: bold;
+      font-size: .8rem;
+      border-radius: 50%;
+      color: #7f7f7f; }
+    .list__item-active {
+      color: black; }
+      .list__item-active:before {
+        background-color: #2c80b9;
+        color: white; }
 
 /*# sourceMappingURL=styles.css.map */
