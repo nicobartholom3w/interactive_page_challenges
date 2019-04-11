@@ -71,14 +71,17 @@ html, body {
 }
 
 .submit {
-	padding: .75rem 3rem;
-	// background-color: blue;
+	padding: .75rem 0 .75rem 1.5rem;
 	width: 19rem;
 	box-sizing: border-box;
 
 	&__content {
-
-
+		width: 100%;
+		display: none;
+		
+		&-active {
+			display: block;
+		}
 	}
 }
 
@@ -91,7 +94,11 @@ html, body {
 	padding: .75rem;
 	border-radius: .25rem;
 	margin: 1.25rem .25rem 0 0;
+	display: none;
 
+	&__active {
+		display: inline-block;
+	}
 	&:hover {
 		background-color: rgb(232, 232, 232);
 	}
