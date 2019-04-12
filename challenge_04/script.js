@@ -1,20 +1,43 @@
 document.addEventListener("DOMContentLoaded", function(event){
 	let submitContentArray = Array.from(document.getElementsByClassName("submit__content"));
-	let buttonArray = Array.from(document.getElementsByClassName("button"));
+	let initButtonArray = Array.from(document.getElementsByClassName("button"));
 	let listArray = Array.from(document.getElementsByClassName("list__item"));
+	let wholeSelectionArray = [];
+	// 
+	let buttonSelectionOne = [initButtonArray[0]];
+	let buttonSelectionTwo = [initButtonArray[1], initButtonArray[2]];
+	let buttonSelectionThree = [initButtonArray[3], initButtonArray[4]];
 
-	// 
-	// 
+	let buttonArray = [buttonSelectionOne, buttonSelectionTwo, buttonSelectionThree];
 	
-	function addClickEvent (list){
-		for (let item of list){
-			item.addEventListener("click", () => clickedLi(item));
+	function addListClickEvent (list){
+		for (let i = 0; i < list.length; i++){
+			let selectionObj = {item: listArray[i], content: submitContentArray[i], button: buttonArray[i]};
+			wholeSelectionArray.push(selection);
+			let listItem = list[i];
+			listItem.addEventListener("click", () => clickedLi(selectionObj));
 		}
 	}
 
-	
+	funciton isActive (e) {
+		if (e.getAttribute("active") == "true") {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
-	addClickEvent(listArray);
+	function clickedLi (selection) {
+		for (let j = 0; j < wholeSelectionArray.length; j++){
+			let selected = selection == wholeSelectionArray[j];
+			if(selected) {
+
+			}
+		}
+	}
+
+	addListClickEvent(listArray);
 });
 
 // function hide(listItem, text, button1, button2) {
