@@ -13,13 +13,13 @@ document.addEventListener("DOMContentLoaded", function(event){
 	function addListClickEvent (list){
 		for (let i = 0; i < list.length; i++){
 			let selectionObj = {item: listArray[i], content: submitContentArray[i], button: buttonArray[i]};
-			wholeSelectionArray.push(selection);
+			wholeSelectionArray.push(selectionObj);
 			let listItem = list[i];
 			listItem.addEventListener("click", () => clickedLi(selectionObj));
 		}
 	}
 
-	funciton isActive (e) {
+	function isActive (e) {
 		if (e.getAttribute("active") == "true") {
 			return true;
 		}
@@ -30,9 +30,27 @@ document.addEventListener("DOMContentLoaded", function(event){
 
 	function clickedLi (selection) {
 		for (let j = 0; j < wholeSelectionArray.length; j++){
+			let current = wholeSelectionArray[j];
 			let selected = selection == wholeSelectionArray[j];
 			if(selected) {
-
+				// make active = true
+				// add somethingsomething-active
+				selection.item.classList.add("list__item-active");
+				selection.item.setAttribute("active", "true");
+				selection.content.classList.add("submit__content-active");
+				selection.content.setAttribute("active", "true");
+				for (let button of selection.button){
+					button.classList.add("button__active");
+					button.setAttribute("active", "true");
+				}
+			}
+			else {
+				current.content.classList.remove("submit__content-active");
+				current.content.setAttribute("active", "false");
+				for (let button of current.button){
+					button.classList.remove("button__active");
+					button.setAttribute("active", "false");
+				}
 			}
 		}
 	}
