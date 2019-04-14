@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 	}
 
 	function isActive (e) {
-		if (e.getAttribute("active") == "true") {
+		if (e == undefined || e.getAttribute("active") == "true") {
 			return true;
 		}
 		else {
@@ -32,17 +32,21 @@ document.addEventListener("DOMContentLoaded", function(event){
 		for (let j = 0; j < wholeSelectionArray.length; j++){
 			let current = wholeSelectionArray[j];
 			let selected = selection == wholeSelectionArray[j];
-			if(selected) {
-				// make active = true
-				// add somethingsomething-active
-				selection.item.classList.add("list__item-active");
-				selection.item.setAttribute("active", "true");
-				selection.content.classList.add("submit__content-active");
-				selection.content.setAttribute("active", "true");
-				for (let button of selection.button){
-					button.classList.add("button__active");
-					button.setAttribute("active", "true");
-				}
+			let currentLi = listArray[j];
+			let previousLi = listArray[j - 1];
+			let stayActive = wholeSelectionArray[0];
+
+			// if previous item not active dont' do anything
+			
+			if(selected && isActive(previousLi)) {
+					selection.item.classList.add("list__item-active");
+					selection.item.setAttribute("active", "true");
+					selection.content.classList.add("submit__content-active");
+					selection.content.setAttribute("active", "true");
+					for (let button of selection.button){
+						button.classList.add("button__active");
+						button.setAttribute("active", "true");
+					}
 			}
 			else {
 				current.content.classList.remove("submit__content-active");
@@ -51,8 +55,24 @@ document.addEventListener("DOMContentLoaded", function(event){
 					button.classList.remove("button__active");
 					button.setAttribute("active", "false");
 				}
+				if(j == 2 && !isActive(previousLi)){ 
+					stayActive.item.classList.add("list__item-active");
+					stayActive.item.setAttribute("active", "true");
+					stayActive.content.classList.add("submit__content-active");
+					stayActive.content.setAttribute("active", "true");
+					for (let button of stayActive.button){
+						button.classList.add("button__active");
+						button.setAttribute("active", "true");
+					}
+				}
+				
 			}
 		}
+		// if (!isActive(listArray[2]) && !isActive(listArray[1]){
+			// let stayActive = listArray[0];
+			// stayActive.item.classList.add("list__item-active");
+			// stayActive.item.setAttribute("active", "true");
+		// }
 	}
 
 	addListClickEvent(listArray);

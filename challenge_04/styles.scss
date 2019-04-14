@@ -19,7 +19,7 @@ html, body {
 	font-size: .9rem;
 	
 	&__content {
-		margin: .5rem 1rem;
+		margin: .5rem 0rem;
 		display: flex;
 		// background-color: purple;
 		box-sizing: border-box;
@@ -28,7 +28,7 @@ html, body {
 
 .list {
 	height: 4.5rem;
-	width: 10rem;
+	width: 11rem;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -40,6 +40,17 @@ html, body {
 		position: relative;
 		cursor: pointer;
 		color: rgb(139, 139, 139);
+		padding-left: 1rem;
+		// background-color: pink;
+
+		&:hover {
+			color: black;
+		}
+
+		&:hover:before {
+			color: black;
+			background-color: rgb(241, 241, 241);
+		}
 
 		&:before {
 			position: absolute;
@@ -58,6 +69,7 @@ html, body {
 			color: rgb(127, 127, 127);
 			// 
 		}
+		
 
 		&-active {
 			color: black;
@@ -65,8 +77,15 @@ html, body {
 			&:before {
 				background-color: rgb(44, 128, 185);
 				color: white;
+
+			}
+			&:hover:before {
+				background-color: rgb(44, 128, 185);
+				color: white;
 			}
 		}
+
+
 	}
 }
 

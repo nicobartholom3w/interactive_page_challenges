@@ -17,13 +17,13 @@ html, body {
   box-sizing: border-box;
   font-size: .9rem; }
   .card__content {
-    margin: .5rem 1rem;
+    margin: .5rem 0rem;
     display: flex;
     box-sizing: border-box; }
 
 .list {
   height: 4.5rem;
-  width: 10rem;
+  width: 11rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -31,7 +31,13 @@ html, body {
   .list__item {
     position: relative;
     cursor: pointer;
-    color: #8b8b8b; }
+    color: #8b8b8b;
+    padding-left: 1rem; }
+    .list__item:hover {
+      color: black; }
+    .list__item:hover:before {
+      color: black;
+      background-color: #f1f1f1; }
     .list__item:before {
       position: absolute;
       counter-increment: custom;
@@ -50,6 +56,9 @@ html, body {
     .list__item-active {
       color: black; }
       .list__item-active:before {
+        background-color: #2c80b9;
+        color: white; }
+      .list__item-active:hover:before {
         background-color: #2c80b9;
         color: white; }
 
