@@ -47,6 +47,11 @@ document.addEventListener("DOMContentLoaded", function(event){
 						button.classList.add("button__active");
 						button.setAttribute("active", "true");
 					}
+				if(isActive(listArray[j + 1])) {
+					let previouslyActive = wholeSelectionArray[j + 1];
+					previouslyActive.item.classList.remove("list__item-active");
+					previouslyActive.item.setAttribute("active", "false");
+				}
 			}
 			else {
 				current.content.classList.remove("submit__content-active");
@@ -55,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 					button.classList.remove("button__active");
 					button.setAttribute("active", "false");
 				}
+				
 				if(j == 2 && !isActive(previousLi)){ 
 					stayActive.item.classList.add("list__item-active");
 					stayActive.item.setAttribute("active", "true");
