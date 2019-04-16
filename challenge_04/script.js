@@ -126,10 +126,12 @@ document.addEventListener("DOMContentLoaded", function(event){
 						button.classList.add("button__active");
 						button.setAttribute("active", "true");
 					}
-				if(isActive(listArray[j + 1])) {
-					let previouslyActive = wholeSelectionArray[j + 1];
-					previouslyActive.item.classList.remove("list__item-active");
-					previouslyActive.item.setAttribute("active", "false");
+				if(j !== 2 && isActive(listArray[j + 1])) {
+					for (let count = 2; count > j; count--){
+						let previouslyActive = wholeSelectionArray[count];
+						previouslyActive.item.classList.remove("list__item-active");
+						previouslyActive.item.setAttribute("active", "false");
+					}
 				}
 			}
 			else {
