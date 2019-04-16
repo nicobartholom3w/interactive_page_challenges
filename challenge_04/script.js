@@ -22,13 +22,9 @@ document.addEventListener("DOMContentLoaded", function(event){
 	}
 
 	function addButtonClickEvents (individualButtonArray){
-		let countEven = 0;
-		let countOdd = 0;
-
 		for(let b = 0; b < individualButtonArray.length; b++) {
 			let button = individualButtonArray[b];
 			if(b % 2 == 0){
-				countEven++;
 				forwardButtonArray.push(individualButtonArray[b]);
 				button.addEventListener("click", () => forwardButton(button));
 
@@ -36,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function(event){
 			else {
 				backButtonArray.push(individualButtonArray[b]);
 				button.addEventListener("click", () => backButton(button));
-				countOdd++;
 			}
 		}
 	}
@@ -78,8 +73,29 @@ document.addEventListener("DOMContentLoaded", function(event){
 		}
 	}
 
-	function backButton(selection) {
-
+	function backButton(selectionButton) {
+		for(let m = 0; m < backButtonArray.length; m++){
+			let selected = selectionButton == backButtonArray[m];
+			let selection = wholeSelectionArray[m + 1];
+			let previous = wholeSelectionArray[m];
+			if(selected) {
+				previous.content.classList.add("submit__content-active");
+				previous.content.setAttribute("active", "true");
+				for (let button of previous.button){
+					button.classList.add("button__active");
+					button.setAttribute("active", "true");
+				}
+				selection.item.classList.remove("list__item-active");
+				selection.item.setAttribute("active", "false");
+				selection.content.classList.remove("submit__content-active");
+				selection.content.setAttribute("active", "false");
+				for (let button of selection.button){
+					button.classList.remove("button__active");
+					button.setAttribute("active", "false");
+				}
+				break;
+			}
+		}
 	}
 
 	function isActive (e) {
