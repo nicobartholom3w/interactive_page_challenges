@@ -4,13 +4,17 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let wordSoFar = "";
 	let wordSplit = "";
 	let letterCount = 0;
-	// change word when finished going through letters in current word
-	// 
+	let wordCount = 0; 
 	
 	function rotateThroughWords() {
-		for(let word of wordArray){
-			wordSplit = word.split("");
+		wordSoFar = "";
+		if(wordCount == 4){
+			return;
 		}
+		let word = wordArray[wordCount];
+		wordSplit = word.split("");
+		wordCount++;
+		setTimeout(() => spellOutWord(wordSplit, letterCount), 1000);
 	}
 
 	function spellOutWord(wordSplit, letterCount) {
@@ -21,9 +25,26 @@ document.addEventListener("DOMContentLoaded", function(event){
 		if(letterCount < wordSplit.length){
 			setTimeout(spellOutWord, 1000, wordSplit, letterCount);
 		}
+		else {
+			setTimeout(rotateThroughWords, 1000);
+		}
 	}
-	let apple = "apple";
-	wordSplit = apple.split("");
-
-	spellOutWord(wordSplit, letterCount);
+	setTimeout(rotateThroughWords, 1000);
 });
+
+
+// Examples/notes
+	// let i = 1;
+		// var blee = (function() {
+		// 	return function() {
+		// 		console.log(i);
+		// 	}
+		// })();
+		// i++;
+		// var blah = (function() {
+		// 	return function() {
+		// 		console.log(i);
+		// 	}
+		// })();
+		// blee();
+		// blah();
