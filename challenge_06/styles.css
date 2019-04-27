@@ -4,6 +4,17 @@ body, html {
   min-width: 100%;
   min-height: 100%;
   font-family: sans-serif;
-  background-color: #f7d794; }
+  background-color: #30336b; }
+
+.container {
+  width: 30rem;
+  height: 30rem;
+  margin: 6.25rem auto 0rem; }
+
+.card {
+  width: 30rem;
+  height: 30rem;
+  background-color: white;
+  border-radius: .25rem; }
 
 /*# sourceMappingURL=styles.css.map */

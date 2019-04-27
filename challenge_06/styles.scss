@@ -4,5 +4,19 @@ body, html {
 	min-width: 100%;
 	min-height: 100%;
 	font-family: sans-serif;
-	background-color: rgb(247, 215, 148);
+	background-color: rgb(48, 51, 107);
+}
+
+
+.container {
+	width: 30rem;
+	height: 30rem;
+	margin: 6.25rem auto 0rem;
+}
+
+.card {
+	width: 30rem;
+	height: 30rem;
+	background-color: white;
+	border-radius: .25rem;
 }
