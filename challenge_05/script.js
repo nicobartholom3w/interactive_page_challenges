@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 	function rotateThroughWords() {
 		wordSoFar = "";
 		if(wordCount == 4){
-			return;
+			wordCount = 0;
 		}
 		let word = wordArray[wordCount];
 		wordSplit = word.split("");
@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function(event){
 			setTimeout(rotateThroughWords, 1000);
 		}
 	}
+
+
 	setTimeout(rotateThroughWords, 1000);
 });
 

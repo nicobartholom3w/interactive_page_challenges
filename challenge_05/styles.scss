@@ -17,6 +17,15 @@ body, html {
 
 }
 
+@keyframes blink {
+	50% { border-color: black; }
+}
+
 .word {
-	
+	border-right: solid .1rem rgb(247, 215, 148);
+	animation-name: blink;
+	animation-duration: .5s;
+	animation-timing-function: step-end;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
 }
