@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 		let word = wordArray[wordCount];
 		wordSplit = word.split("");
 		wordCount++;
-		setTimeout(() => spellOutWord(wordSplit, letterCount), 1000);
+		setTimeout(() => spellOutWord(wordSplit, letterCount), 300);
 	}
 
 	function spellOutWord(wordSplit, letterCount) {
@@ -23,15 +23,15 @@ document.addEventListener("DOMContentLoaded", function(event){
 		wordSpan.textContent = wordSoFar;
 		letterCount++;
 		if(letterCount < wordSplit.length){
-			setTimeout(spellOutWord, 1000, wordSplit, letterCount);
+			setTimeout(spellOutWord, 300, wordSplit, letterCount);
 		}
 		else {
-			setTimeout(rotateThroughWords, 1000);
+			setTimeout(rotateThroughWords, 1500);
 		}
 	}
 
 
-	setTimeout(rotateThroughWords, 1000);
+	setTimeout(rotateThroughWords, 300);
 });
 
 
