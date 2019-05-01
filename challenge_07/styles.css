@@ -1,0 +1,19 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-family: sans-serif;
+  background-color: white; }
+
+.container {
+  margin: 9.25rem auto 0rem;
+  width: 62.5rem; }
+
+.card {
+  width: 62.5rem;
+  height: 31.25rem;
+  background-color: #fa9a8a;
+  margin-top: 1rem; }
+
+/*# sourceMappingURL=styles.css.map */
