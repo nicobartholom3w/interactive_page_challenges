@@ -1,0 +1,15 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-family: sans-serif;
+  background-color: rgb(71, 71, 135); 
+}
+
+.card {
+	height: 10rem;
+	width: 10rem;
+	background-color: white;
+	margin: 6rem auto 0;
+}
