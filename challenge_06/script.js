@@ -15,12 +15,10 @@ document.addEventListener("DOMContentLoaded", function(event){
 		setOrigin: function(e) {
 			this._x = e.offsetLeft + Math.floor(e.offsetWidth/2);
 			this._y = e.offsetTop + Math.floor(e.offsetHeight/2);
-		},
-		show: function() { return '(' + this.x + ', ' + this.y + ')'; }
+		}
 	}
 
-
-	mouse.setOrigin(container);
+	mouse.setOrigin(card);
 
 	let onMouseEnterHandler = function(event) {
 		update(event);
@@ -31,17 +29,14 @@ document.addEventListener("DOMContentLoaded", function(event){
 	};
 
 	let onMouseMoveHandler = function(event) {
-		if(isTimeToUpdate()) {
 			update(event);
-
-		}
 	};
 
 	let update = function(event) {
 		mouse.updatePosition(event);
 		updateTransformStyle(
-			(mouse.y / container.offsetHeight/2).toFixed(2),
-			(mouse.x / container.offsetWidth/2).toFixed(2)
+			(mouse.y / card.offsetHeight/2).toFixed(2),
+			(mouse.x / card.offsetWidth/2).toFixed(2)
 		);
 	};
 
@@ -53,14 +48,6 @@ document.addEventListener("DOMContentLoaded", function(event){
 	container.onmouseenter = onMouseEnterHandler;
 	container.onmouseleave = onMouseLeaveHandler;
 	container.onmousemove = onMouseMoveHandler;
-
-	let counter = 0;
-	let updateRate = 10;
-	let isTimeToUpdate = function() {
-		// return counter++ % updateRate === 0;
-		return true;
-	}
-
 
 });
 
