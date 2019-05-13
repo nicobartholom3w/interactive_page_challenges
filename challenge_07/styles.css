@@ -38,7 +38,7 @@ body, html {
   to {
     margin: 9.5 auto 9.5rem; } }
 .container__fade-in {
-  animation: container__opacity, container__margin .2s; }
+  animation: container__opacity .2s, container__margin .3s; }
 
 .hidden {
   opacity: 0; }
