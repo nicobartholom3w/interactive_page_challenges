@@ -26,7 +26,7 @@ body, html {
 }
 
 .card__fade-in {
-	animation: card__fade-in 3s;
+	animation: card__fade-in .3s;
 }
 
 @keyframes container__opacity {
