@@ -1,19 +1,46 @@
 body, html {
   margin: 0;
-  padding: 0;
+  padding: 0 .25rem;
   min-width: 100%;
   min-height: 100%;
   font-family: sans-serif;
-  background-color: white; }
+  background-color: #fafafa; }
 
 .container {
-  margin: 9.25rem auto 0rem;
+  margin: 9.5rem auto 9.5rem;
   width: 62.5rem; }
 
 .card {
   width: 62.5rem;
   height: 31.25rem;
   background-color: #fa9a8a;
-  margin-top: 1rem; }
+  margin-top: 1.25rem;
+  border-radius: .25rem; }
+
+@keyframes card__fade-in {
+  from {
+    opacity: 0;
+    margin: 9.5rem auto 9.5rem; }
+  to {
+    opacity: 1;
+    margin: 1.25rem 0 0 0; } }
+.card__fade-in {
+  animation: card__fade-in 3s; }
+
+@keyframes container__opacity {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes container__margin {
+  from {
+    margin: 11rem auto 9.5rem; }
+  to {
+    margin: 9.5 auto 9.5rem; } }
+.container__fade-in {
+  animation: container__opacity, container__margin .2s; }
+
+.hidden {
+  opacity: 0; }
 
 /*# sourceMappingURL=styles.css.map */
