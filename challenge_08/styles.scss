@@ -40,13 +40,31 @@ body, html {
   }
 }
 
+@keyframes slide-in {
+  from {left: -25rem;}
+  to {left: 0rem;}
+}
+
+.slide-in {
+  animation: slide-in 1s;
+}
+
+@keyframes slide-out {
+  from {left: 0rem;}
+  to {left: -25rem;}
+}
+
+.slide-out {
+  animation: slide-out 1s;
+}
 
 .side__menu {
   height: 100%;
-  width: 100%;
   position: absolute;
   display: flex;
   top: 0;
+  left: 0rem;
+  // animation: slide-out 1s;
 
   &-bar {
     display: flex;
@@ -61,13 +79,38 @@ body, html {
 
   &-search {
     display: none;
+
+    &-active {
+      display: flex;
+    }
+  }
+
+  &-run {
+    display: none;
+
+    &-active {
+      display: flex;
+    }
   }
 }
+
 
 .right-overlay {
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, .65);
+  transition: all .1s;
+
+    &-active {
+      &:before {
+        content: "";
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, .65);
+        position: absolute;
+        top: 0;
+        transition: all .3s;
+      }
+    }
 }
 
 .hidden__content {
