@@ -7,9 +7,41 @@ body, html {
   background-color: #474787; }
 
 .card {
-  height: 10rem;
-  width: 10rem;
+  height: 7.5rem;
+  width: 14.25rem;
   background-color: white;
-  margin: 6rem auto 0; }
+  margin: 6rem auto 0rem;
+  border-radius: .25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.button {
+  font-size: .85rem;
+  border: none;
+  outline: none;
+  background-color: #ffdbdb;
+  padding: .75rem;
+  cursor: pointer;
+  transition: background-color .3s; }
+  .button:hover {
+    background-color: #ff8f8f; }
+  .button__search {
+    margin-right: .5rem; }
+
+.side__menu {
+  height: 100%;
+  position: absolute;
+  display: flex;
+  top: 0; }
+  .side__menu-bar {
+    display: none;
+    background-color: white;
+    height: 100%;
+    width: 20rem;
+    position: absolute;
+    top: 0; }
+  .side__menu-search {
+    display: block; }
 
 /*# sourceMappingURL=styles.css.map */

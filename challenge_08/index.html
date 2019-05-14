@@ -13,19 +13,24 @@
         Build a card with two buttons. Each button opens a linked side menu with content and close button.
         Clicking the close button or outside the side menu, should close it.
     -->
-	<div class="side__menu">
-		<div class="side__menu-search">
-			<div class="hidden__text"></div>
-			<button></button>
-		</div>
-		<div class="side__menu-run">
-			<div class="hidden__text"></div>
-			<button></button>
-		</div>
-	</div>
+
+
     <div class="card">
-    	<button class="search">Search</button>
-    	<button class="run">Run</button>
+    	<button class="button button__search">Search</button>
+    	<button class="button button__run">Run</button>
+    </div>
+
+    <div class="side__menu">
+
+      <div class="side__menu-bar side__menu-search">
+        <div class="hidden__text">Whoa! You found me!</div>
+        <button class="button button__hide">Hide back</button>
+      </div>
+      <div class="side__menu-bar side__menu-run">
+        <div class="hidden__text">Please don't run!</div>
+        <button class="button button__close">Close</button>
+      </div>
+      <div class="right-overlay"></div>
     </div>
 </body>
 </html>
