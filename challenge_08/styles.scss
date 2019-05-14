@@ -34,34 +34,46 @@ body, html {
   &__search {
     margin-right: .5rem;
   }
+
+  &__hidden {
+    width: 5.5rem;
+  }
 }
 
 
 .side__menu {
   height: 100%;
+  width: 100%;
   position: absolute;
   display: flex;
   top: 0;
 
   &-bar {
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     height: 100%;
-    width: 20rem;
+    width: 25rem;
     position: absolute;
-    top: 0;
+    font-size: 1.25rem;
   }
 
   &-search {
-    display: block;
- 
-  }
-
-  &-run {
-
+    display: none;
   }
 }
 
 .right-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .65);
+}
 
+.hidden__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 5.5rem;
 }

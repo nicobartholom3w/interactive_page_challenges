@@ -28,20 +28,37 @@ body, html {
     background-color: #ff8f8f; }
   .button__search {
     margin-right: .5rem; }
+  .button__hidden {
+    width: 5.5rem; }
 
 .side__menu {
   height: 100%;
+  width: 100%;
   position: absolute;
   display: flex;
   top: 0; }
   .side__menu-bar {
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     height: 100%;
-    width: 20rem;
+    width: 25rem;
     position: absolute;
-    top: 0; }
+    font-size: 1.25rem; }
   .side__menu-search {
-    display: block; }
+    display: none; }
+
+.right-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.65); }
+
+.hidden__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 5.5rem; }
 
 /*# sourceMappingURL=styles.css.map */
