@@ -14,7 +14,8 @@ body, html {
   border-radius: .25rem;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  -webkit-backface-visibility: hidden; }
 
 .button {
   font-size: .85rem;
@@ -37,7 +38,7 @@ body, html {
   to {
     left: 0rem; } }
 .slide-in {
-  animation: slide-in 1s; }
+  animation: slide-in .5s; }
 
 @keyframes slide-out {
   from {
@@ -45,7 +46,7 @@ body, html {
   to {
     left: -25rem; } }
 .slide-out {
-  animation: slide-out 1s; }
+  animation: slide-out .5s; }
 
 .side__menu {
   height: 100%;
@@ -74,15 +75,18 @@ body, html {
 .right-overlay {
   height: 100%;
   width: 100%;
-  transition: all .1s; }
-  .right-overlay-active:before {
-    content: "";
-    height: 100%;
-    width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  transition: background-color .5s;
+  -webkit-backface-visibility: hidden; }
+  .right-overlay-active {
+    -webkit-backface-visibility: hidden;
     background-color: rgba(0, 0, 0, 0.65);
-    position: absolute;
-    top: 0;
-    transition: all .3s; }
+    transition: background-color .5s; }
+  .right-overlay-zindex {
+    z-index: 0; }
 
 .hidden__content {
   display: flex;

@@ -16,6 +16,7 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
+  -webkit-backface-visibility: hidden;
 }
 
 .button {
@@ -46,7 +47,7 @@ body, html {
 }
 
 .slide-in {
-  animation: slide-in 1s;
+  animation: slide-in .5s;
 }
 
 @keyframes slide-out {
@@ -55,7 +56,7 @@ body, html {
 }
 
 .slide-out {
-  animation: slide-out 1s;
+  animation: slide-out .5s;
 }
 
 .side__menu {
@@ -98,18 +99,22 @@ body, html {
 .right-overlay {
   height: 100%;
   width: 100%;
-  transition: all .1s;
-
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  transition: background-color .5s;
+  -webkit-backface-visibility: hidden;
+    
     &-active {
-      &:before {
-        content: "";
-        height: 100%;
-        width: 100%;
-        background-color: rgba(0, 0, 0, .65);
-        position: absolute;
-        top: 0;
-        transition: all .3s;
-      }
+      -webkit-backface-visibility: hidden;
+      background-color: rgba(0, 0, 0, .65);
+      
+      transition: background-color .5s;
+    }
+
+    &-zindex {
+      z-index: 0;
     }
 }
 
