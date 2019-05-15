@@ -21,12 +21,12 @@ body, html {
   font-size: .85rem;
   border: none;
   outline: none;
-  background-color: #ffdbdb;
+  background-color: #d5f1db;
   padding: .75rem;
   cursor: pointer;
   transition: background-color .3s; }
   .button:hover {
-    background-color: #ff8f8f; }
+    background-color: #69a577; }
   .button__search {
     margin-right: .5rem; }
   .button__hidden {
