@@ -24,13 +24,18 @@ body, html {
   background-color: #d5f1db;
   padding: .75rem;
   cursor: pointer;
-  transition: background-color .3s; }
+  transition: background-color .3s, margin-top .2s; }
   .button:hover {
     background-color: #69a577; }
+  .button:active {
+    margin-top: .15rem; }
   .button__search {
     margin-right: .5rem; }
   .button__hidden {
-    width: 5.5rem; }
+    width: 5.5rem;
+    transition: margin-top .1s; }
+    .button__hidden:active {
+      margin-top: 1.75rem; }
 
 @keyframes slide-in {
   from {
