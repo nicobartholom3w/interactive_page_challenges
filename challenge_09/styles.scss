@@ -1,7 +1,26 @@
 body, html {
-  margin: 0;
-  padding: 0;
   min-width: 100%;
   min-height: 100%;
   font-family: sans-serif;
+}
+
+.container {
+	margin: 1.25rem auto 0;
+	display: flex;
+}
+
+.card {
+	height: 12.5rem;
+	width: 16.25rem;
+	background-color: #f88379;
+	color: rgb(103, 114, 229);
+	margin: 6rem 2.5rem 0 0;
+	border-radius: .25rem;
+
+	&__side {
+		height: 80rem;
+		width: 43.75rem;
+		background-color: #71eeb8;
+		border-radius: .25rem;
+	}
 }
