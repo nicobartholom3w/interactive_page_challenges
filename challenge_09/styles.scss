@@ -7,19 +7,23 @@ body, html {
 .container {
 	margin: 1.25rem auto 0;
 	display: flex;
+	position: relative;
 
 }
+
+
 
 .card {
 	height: 12.5rem;
 	width: 16.25rem;
 	background-color: #f88379;
 	color: rgb(103, 114, 229);
-	margin: 6rem 2.5rem 0 0;
+	margin: 4.75rem 2.5rem 0 0;
 	border-radius: .25rem;
 	flex-shrink: 0;
-	position: sticky;
+	// position: sticky;
 	top: 1.25rem;
+	position: absolute;
 
 	&:before {
 		content: "";
@@ -37,5 +41,11 @@ body, html {
 		background-color: #71eeb8;
 		border-radius: .25rem;
 		flex-shrink: 0;
+		margin-left: 19rem;
 	}
+}
+
+.sticky {
+	position: fixed;
+	margin-top: 0;
 }
