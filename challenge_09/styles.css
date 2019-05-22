@@ -13,11 +13,23 @@ body, html {
   background-color: #f88379;
   color: #6772e5;
   margin: 6rem 2.5rem 0 0;
-  border-radius: .25rem; }
+  border-radius: .25rem;
+  flex-shrink: 0;
+  position: sticky;
+  top: 1.25rem; }
+  .card:before {
+    content: "";
+    border-bottom: solid 0.05rem #dfdfdf;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: .25rem;
+    top: .08rem; }
   .card__side {
-    height: 80rem;
-    width: 43.75rem;
+    height: 89rem;
+    width: 44rem;
     background-color: #71eeb8;
-    border-radius: .25rem; }
+    border-radius: .25rem;
+    flex-shrink: 0; }
 
 /*# sourceMappingURL=styles.css.map */
