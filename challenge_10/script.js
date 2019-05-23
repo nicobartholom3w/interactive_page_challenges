@@ -1,30 +1,33 @@
 document.addEventListener("DOMContentLoaded", function(event){
 	let card = document.querySelector(".card");
-	let x = 0;
-	let y = 0;
+	let initX;
+	let initY;
+	let currentX;
+	let currentY;
 
 	setOrigin(card);
 	let mouseDown = false;
 
 	function setOrigin(e) {
-		x =  e.offsetLeft;
-		y = e.offsetTop;
+		initX =  e.offsetLeft;
+		initY = e.offsetTop;
 	}
 
 	function updatePosition(e) {
-		x = e.clientX;
-		y = e.clientY;
-		card.style.left = x + "px";
-		card.style.top = y + "px";
+		currentX = e.clientX;
+		currentY = e.clientY;
+		card.style.left = (currentX - initX) + "px";
+		card.style.top = (currentY - initY) + "px";
 	}
 
 	function onMouseDownHandler(event) {
 		mouseDown = true;
-		setOrigin(card);
+		// setOrigin(card);
 	}
 
 	function onMouseMoveHandler(e) {
 		if(mouseDown == true) {
+			setOrigin(e);
 			updatePosition(e);
 		}
 	}

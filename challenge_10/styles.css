@@ -4,22 +4,8 @@ body, html {
   min-width: 100%;
   min-height: 100%;
   height: 100%;
-  font-family: sans-serif; }
-
-.container {
-  height: 100%;
-  width: 100%;
-  background-color: #6772e5;
-  position: relative; }
-
-.color {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: #f88379;
-  background: linear-gradient(to right, orange, yellow, green, cyan, blue, violet); }
+  font-family: sans-serif;
+  background-color: #6772e5; }
 
 .card {
   height: 18.75rem;
@@ -28,7 +14,8 @@ body, html {
   overflow: hidden;
   z-index: 1;
   position: fixed;
-  cursor: move; }
+  cursor: move;
+  background-color: #f88379; }
   .card__init {
     top: 6rem;
     left: 6rem; }
