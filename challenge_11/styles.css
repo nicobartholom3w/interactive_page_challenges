@@ -1,0 +1,32 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-family: sans-serif;
+  background-color: #c34568; }
+
+.card {
+  height: 12.15rem;
+  width: 27.6rem;
+  background-color: white;
+  border-radius: .25rem;
+  margin: 6.25rem auto 0; }
+  .card-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: pink;
+    box-sizing: border-box; }
+
+.form__fieldset {
+  border: none; }
+.form__label {
+  font-size: 1.5rem; }
+.form__input {
+  width: 2.5rem;
+  height: 2.5rem; }
+
+/*# sourceMappingURL=styles.css.map */

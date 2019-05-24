@@ -1,0 +1,44 @@
+body, html {
+	padding: 0;
+	margin: 0;
+ 	min-width: 100%;
+ 	min-height: 100%;
+ 	font-family: sans-serif;
+ 	background-color: rgb(195, 69, 104);
+}
+
+
+.card {
+	height: 12.15rem;
+	width: 27.6rem;
+	background-color: white;
+	border-radius: .25rem;
+	margin: 6.25rem auto 0;
+
+	&-content {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		background-color: pink;
+		box-sizing: border-box;
+	}
+}
+
+.form {
+
+	&__fieldset {
+		border: none;
+	}
+
+	&__label {
+		font-size: 1.5rem;
+	}
+
+	&__input {
+		width: 2.5rem;
+		height: 2.5rem;
+	}
+}
