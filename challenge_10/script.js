@@ -1,45 +1,47 @@
 document.addEventListener("DOMContentLoaded", function(event){
 	let card = document.querySelector(".card");
-	let initX;
-	let initY;
-	let currentX;
-	let currentY;
+	let cardX;
+	let cardY;
+	let currentMouseX;
+	let currentMouseY;
+	let initMouseX;
+	let initMouseY;
+	
 
 	setOrigin(card);
 	let mouseDown = false;
 
 	function setOrigin(e) {
-		// initX =  e.clientX + window.scrollX - e.offsetLeft;
-		// initY = e.clientY + window.scrollY - e.offsetTop;
-		initX = e.offsetLeft;
-		initY = e.offsetTop;
+		cardX = e.offsetLeft;
+		cardY = e.offsetTop;
 	}
 
 	function updatePosition(e) {
-		currentX = e.clientX;
-		currentY = e.clientY;
-		card.style.left = (currentX + window.scrollX - initX) + "px";
-		card.style.top = (currentY + window.scrollY - initY) + "px";
+		currentMouseX = initMouseX - e.clientX;
+		currentMouseY = initMouseY - e.clientY;
+		initMouseX = e.clientX;
+		initMouseY = e.clientY;
+		card.style.left = (card.offsetLeft - currentMouseX) + "px";
+		card.style.top = (card.offsetTop - currentMouseY) + "px";
 	}
 
-	function onMouseDownHandler(event) {
+	function onMouseDownHandler(e) {
 		mouseDown = true;
-		// setOrigin(card);
+		initMouseX = e.clientX;
+		initMouseY = e.clientY;
 	}
 
 	function onMouseMoveHandler(e) {
 		if(mouseDown == true) {
-			// setOrigin(e);
 			updatePosition(e);
 		}
 	}
 
 	function onMouseUpHandler(event) {
 		mouseDown = false;
-		// setOrigin(card);
 	}
 
 	card.onmousedown = onMouseDownHandler;
-	card.onmousemove = onMouseMoveHandler;
-	card.onmouseup = onMouseUpHandler;
+	document.onmousemove = onMouseMoveHandler;
+	document.onmouseup = onMouseUpHandler;
 });
