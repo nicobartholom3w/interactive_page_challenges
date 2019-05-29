@@ -4,8 +4,28 @@ body, html {
   min-width: 100%;
   min-height: 100%;
   font-family: sans-serif;
+  background-color: #6772e5; }
+
+.container {
+  height: 100%;
+  width: 100%;
   background-color: #6772e5;
-  padding: 3.25rem; }
+  position: relative; }
+
+.color {
+  position: absolute;
+  height: 400%;
+  width: 400%;
+  background: linear-gradient(to right, orange, yellow, green, cyan, blue, violet);
+  opacity: 1;
+  transition: all .5s; }
+  .color-pseudo {
+    height: 400%;
+    width: 400%;
+    position: absolute;
+    background: linear-gradient(to right, pink, orange, yellow, green, cyan, blue, violet);
+    opacity: 0;
+    transition: all .5s; }
 
 .card {
   height: 18.75rem;
@@ -14,7 +34,9 @@ body, html {
   overflow: hidden;
   z-index: 1;
   position: absolute;
-  cursor: move;
-  background-color: #f88379; }
+  cursor: move; }
+  .card__init {
+    top: 6rem;
+    left: 6rem; }
 
 /*# sourceMappingURL=styles.css.map */
