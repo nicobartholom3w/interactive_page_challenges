@@ -42,6 +42,8 @@ fieldset {
     text-align: center;
     font-size: 1.25rem;
     outline: none; }
+    .form__input:focus {
+      background-color: rgba(195, 69, 104, 0.05); }
   .form__dash {
     height: .15rem;
     width: .85rem;

@@ -53,6 +53,10 @@ fieldset {
 		text-align: center;
 		font-size: 1.25rem;
 		outline: none;
+
+		&:focus {
+			background-color: rgba(195, 69, 104, .05);
+		}
 	}
 
 	&__dash {
