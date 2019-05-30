@@ -21,16 +21,23 @@ body, html {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		
-		background-color: pink;
 		box-sizing: border-box;
 	}
 }
 
+fieldset {
+	border: none;
+}
+
 .form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
 	&__fieldset {
-		border: none;
+		display: flex;
+		align-items: center;
+		margin: .8rem 0;
 	}
 
 	&__label {
@@ -38,7 +45,44 @@ body, html {
 	}
 
 	&__input {
-		width: 2.5rem;
-		height: 2.5rem;
+		width: 2.35rem;
+		height: 2.35rem;
+		border: solid .15rem rgb(222, 222, 222);
+		border-collapse: collapse;
+		margin-right: -.15rem;
+		text-align: center;
+		font-size: 1.25rem;
+		outline: none;
 	}
+
+	&__dash {
+		height: .15rem;
+		width: .85rem;
+		background-color: lightgrey;
+		margin: 0 1.5rem;
+	}
+
+	&__submit {
+		border: none;
+		font-size: .9rem;
+		background-color: rgba(140, 255, 175, .3);
+		padding: .7rem;
+		border-radius: .25rem;
+		cursor: pointer;
+		transition: all .3s;
+		outline: none;
+
+		&:hover {
+			background-color: rgba(140, 255, 175, .75);
+		}
+
+		&:active {
+			transform: translateY(.15rem);
+		}
+	}
+}
+
+.pink {
+
+	background-color: pink;
 }

@@ -18,15 +18,50 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: pink;
     box-sizing: border-box; }
 
-.form__fieldset {
+fieldset {
   border: none; }
-.form__label {
-  font-size: 1.5rem; }
-.form__input {
-  width: 2.5rem;
-  height: 2.5rem; }
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .form__fieldset {
+    display: flex;
+    align-items: center;
+    margin: .8rem 0; }
+  .form__label {
+    font-size: 1.5rem; }
+  .form__input {
+    width: 2.35rem;
+    height: 2.35rem;
+    border: solid 0.15rem #dedede;
+    border-collapse: collapse;
+    margin-right: -.15rem;
+    text-align: center;
+    font-size: 1.25rem;
+    outline: none; }
+  .form__dash {
+    height: .15rem;
+    width: .85rem;
+    background-color: lightgrey;
+    margin: 0 1.5rem; }
+  .form__submit {
+    border: none;
+    font-size: .9rem;
+    background-color: rgba(140, 255, 175, 0.3);
+    padding: .7rem;
+    border-radius: .25rem;
+    cursor: pointer;
+    transition: all .3s;
+    outline: none; }
+    .form__submit:hover {
+      background-color: rgba(140, 255, 175, 0.75); }
+    .form__submit:active {
+      transform: translateY(0.15rem); }
+
+.pink {
+  background-color: pink; }
 
 /*# sourceMappingURL=styles.css.map */
