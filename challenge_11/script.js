@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 	function initializeForm() {
 		for(let i = 0; i < inputArray.length; i++) {
 			let inputBox = inputArray[i];
+			inputBox.maxLength = "1";
 			if(i == 0) {
 				inputBox.focus();
 			}
@@ -15,9 +16,14 @@ document.addEventListener("DOMContentLoaded", function(event){
 		}
 	}
 
+	function autoTab(current, to) {
+		if (current.getAttribute && current.value.length==current.getAttribute("maxlength")) {
+        	to.focus(); 
+    	}
+	}
 
 
-
+document.oninput = autoTab;
 
 
 
