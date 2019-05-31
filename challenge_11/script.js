@@ -17,7 +17,20 @@ document.addEventListener("DOMContentLoaded", function(event){
 		}
 	}
 
+	function preventFocus(event) {
+		event.preventDefault();
+	}
+
+	function preventFocusTab(event) {
+		if(event.keyCode == 9) {
+			event.preventDefault();
+		}
+	}
+
 	initializeForm();
+
+	document.onmousedown = preventFocus;
+	document.onkeydown = preventFocusTab;
 });
 
 function autotab(current, to) {
@@ -26,3 +39,7 @@ function autotab(current, to) {
     	to.readOnly = false; 
     }
 }
+
+
+
+
