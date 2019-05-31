@@ -52,6 +52,11 @@ document.addEventListener("DOMContentLoaded", function(event){
 		}
 		window.alert("Value is " + valueArray.join(""));
 		event.preventDefault();
+		for(let element of inputArray) {
+			if(element.getAttribute("focus") == "true") {
+				element.focus();
+			}
+		}
 	}
 
 	initializeForm();
@@ -64,6 +69,9 @@ document.addEventListener("DOMContentLoaded", function(event){
 
 function autotab(current, to) {
 	if (current.getAttribute && current.value.length == current.getAttribute("maxlength")) {
+		if(to == null ) {
+			return;
+		}
 		current.setAttribute("focus", "false");
 		to.setAttribute("focus", "true");
 		to.focus();
@@ -85,7 +93,3 @@ function deleteback(previous, current, event) {
 	}
 }
 
-function focus(current, fieldset) {
-	current.focus();
-	current.readOnly = false;
-}
