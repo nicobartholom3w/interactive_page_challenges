@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(event){
-	let inputArray = document.getElementsByClassName("form__input");
+	let inputArray = Array.from(document.getElementsByClassName("form__input"))
+	let submitButton = document.querySelector(".form__submit");
 	
 	function initializeForm() {
 		for(let i = 0; i < inputArray.length; i++) {
@@ -27,11 +28,21 @@ document.addEventListener("DOMContentLoaded", function(event){
 		}
 	}
 
+	function alert(event) {
+		let valueArray = [];
+		for(let element of inputArray) {
+			element = element.value;
+			valueArray.push(element);
+		}
+		window.alert("Value is " + valueArray.join(""));
+		event.preventDefault();
+	}
+
 	initializeForm();
 
 	document.onmousedown = preventFocus;
 	document.onkeydown = preventFocusTab;
-
+	document.onsubmit = alert;
 
 });
 
