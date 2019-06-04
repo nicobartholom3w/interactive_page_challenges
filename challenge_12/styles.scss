@@ -1,0 +1,75 @@
+body, html {
+	padding: 0;
+	margin: 0;
+ 	min-width: 100%;
+ 	min-height: 100%;
+ 	font-family: sans-serif;
+ 	background-color: rgb(225, 112, 85);
+}
+
+.card {
+	width: 27.5rem;
+	height: 17.75rem;
+	background-color: white;
+	margin: 6.25rem auto 0;
+	border-radius: .25rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__content {
+		width: 25rem;
+		height: 15.5rem;
+		// background-color: purple;
+	}
+}
+
+.form {
+	
+	&__title {
+		font-size: .9rem;
+	}
+
+	&__br {
+		width: 100%;
+		height: 1px;
+		background-color: rgb(222, 222, 222);
+		margin: 1.25rem 0 .9rem;
+	}
+
+	&__fieldset {
+		width: 100%;
+	}
+}
+
+fieldset {
+	border: none;
+	// width: 100%;
+	// background-color: pink;
+}
+
+.option {
+	display: block;
+	position: relative;
+	font-size: .88rem;
+	// width: 100%;
+	padding: .6rem 1rem;
+	margin: .13rem -.85rem;
+	border-radius: .2rem;
+	transition: all .3s;
+	
+	&__active {
+		background-color: rgb(241, 241, 241);
+	}
+
+	&__all {
+		font-weight: bolder;
+	}
+
+	&__box {
+		visibility: hidden;
+		height: 0px;
+		width: 0px;
+		position: absolute;
+	}
+}
