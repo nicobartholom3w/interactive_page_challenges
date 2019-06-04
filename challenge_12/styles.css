@@ -39,7 +39,8 @@ fieldset {
   padding: .6rem 1rem;
   margin: .13rem -.85rem;
   border-radius: .2rem;
-  transition: all .3s; }
+  transition: all .3s;
+  cursor: pointer; }
   .option__active {
     background-color: #f1f1f1; }
   .option__all {
@@ -48,6 +49,7 @@ fieldset {
     visibility: hidden;
     height: 0px;
     width: 0px;
+    z-index: -1;
     position: absolute; }
 
 /*# sourceMappingURL=styles.css.map */

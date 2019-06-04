@@ -57,6 +57,7 @@ fieldset {
 	margin: .13rem -.85rem;
 	border-radius: .2rem;
 	transition: all .3s;
+	cursor: pointer;
 	
 	&__active {
 		background-color: rgb(241, 241, 241);
@@ -70,6 +71,7 @@ fieldset {
 		visibility: hidden;
 		height: 0px;
 		width: 0px;
+		z-index: -1;
 		position: absolute;
 	}
 }
