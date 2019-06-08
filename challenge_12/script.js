@@ -81,10 +81,12 @@ document.addEventListener("DOMContentLoaded", function(event){
 				else {
 					let split = orderText.split(", ");
 					orderText = split[0];
+					previousOrder = orderText;
 					formTitleField.innerHTML = orderText;
 				}	
+				displayCount--;
 			}
-			displayCount--;
+			
 		}
 	}
 

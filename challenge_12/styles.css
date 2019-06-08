@@ -42,7 +42,7 @@ fieldset {
   transition: all .3s;
   cursor: pointer; }
   .option__active {
-    background-color: #f1f1f1; }
+    background-color: #02f1f1; }
   .option__all {
     font-weight: bolder; }
   .option__box {
