@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let optionsBoxArray = Array.from(document.getElementsByClassName("option__box"));
 	let formTitleField = document.querySelector(".form__title");
 	let formTitleFieldInit = formTitleField.innerText;
+	let checkAllBox = optionsBoxArray[0];
+	let checkAllNode = optionsArray[0];
 	let orderArray = [];
 	let orderText;
 	let displayCount = 0;
@@ -47,23 +49,26 @@ document.addEventListener("DOMContentLoaded", function(event){
 		displayCount++;
 		orderText = event.target.innerText;
 		orderArray.push(orderText);
+		if(orderArray.length == 4) {
+			checkAllBox.checked = true;
+			checkAllNode.classList.add("option__active");
+			checkAllNode.setAttribute("checked", "true");
+			checkAllNode.checked = true;
+			orderArray = checkAllList();
+		}
 		if(event.target.innerText == "Check all") {
-			orderArray = [];
-			orderText = "";
+			orderArray = checkAllList();
 			let foodOptionsBoxArray = optionsBoxArray.slice();
 			foodOptionsBoxArray.shift();
-			for(let checkbox of foodOptionsBoxArray) {
+			for(let i = 0; i < foodOptionsBoxArray.length; i++) {
+				let checkbox = foodOptionsBoxArray[i];
 				checkbox.checked = true;
-			}
-			let foodOptionsArray = optionsArray.slice();
-			foodOptionsArray.shift();
-			for(let node of foodOptionsArray) {
+				let node = optionsArray[i + 1];
 				if(node.getAttribute("checked") == "false") {
 					node.classList.add("option__active");
 					node.checked = true;
 					node.setAttribute("checked", "true");
 				}
-				orderArray.push(node.innerText);
 			}
 			displayCount = 4;
 			extraCount = 1;
@@ -86,6 +91,12 @@ document.addEventListener("DOMContentLoaded", function(event){
 	}
 
 	function subtractOrder(selectedNode, event) {
+		if(checkAllBox.checked == true && orderArray.length == 4) {
+			checkAllBox.checked = false;
+			checkAllNode.classList.remove("option__active");
+			checkAllNode.setAttribute("checked", "false");
+			checkAllNode.checked = false;
+		}
 		if(event.target.innerText == "Check all") {
 			displayCount = 0;
 			extraCount = 0;
@@ -140,4 +151,12 @@ document.addEventListener("DOMContentLoaded", function(event){
 		}
 	}
 
+	function checkAllList(){
+		orderArray = [];
+		for(let j = 1; j < optionsArray.length; j++) {
+			let choice = optionsArray[j];
+			orderArray.push(choice.innerText);
+		}
+		return orderArray;
+	}
 });

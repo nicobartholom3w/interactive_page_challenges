@@ -46,8 +46,10 @@ fieldset {
   .option__all {
     font-weight: bolder; }
   .option__box {
+    visibility: hidden;
     height: 0px;
     width: 0px;
+    z-index: -1;
     position: absolute; }
 
 /*# sourceMappingURL=styles.css.map */
