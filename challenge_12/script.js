@@ -11,11 +11,8 @@ document.addEventListener("DOMContentLoaded", function(event){
 	initCheckboxFunction();
 
 	function initCheckboxFunction() {
-
-
 		for(let i = 0; i < optionsArray.length; i++) {
 			let option = optionsArray[i];
-			let optionBox = optionsBoxArray[i];
 			option.addEventListener("click", function(event){
 				if(this == event.target) {
 					if(event.target.checked) {
@@ -50,6 +47,27 @@ document.addEventListener("DOMContentLoaded", function(event){
 		displayCount++;
 		orderText = event.target.innerText;
 		orderArray.push(orderText);
+		if(event.target.innerText == "Check all") {
+			orderArray = [];
+			orderText = "";
+			let foodOptionsBoxArray = optionsBoxArray.slice();
+			foodOptionsBoxArray.shift();
+			for(let checkbox of foodOptionsBoxArray) {
+				checkbox.checked = true;
+			}
+			let foodOptionsArray = optionsArray.slice();
+			foodOptionsArray.shift();
+			for(let node of foodOptionsArray) {
+				if(node.getAttribute("checked") == "false") {
+					node.classList.add("option__active");
+					node.checked = true;
+					node.setAttribute("checked", "true");
+				}
+				orderArray.push(node.innerText);
+			}
+			displayCount = 4;
+			extraCount = 1;
+		}
 		
 		if(displayCount <= 2) {
 			orderText = orderArray.join(", ");
@@ -68,6 +86,27 @@ document.addEventListener("DOMContentLoaded", function(event){
 	}
 
 	function subtractOrder(selectedNode, event) {
+		if(event.target.innerText == "Check all") {
+			displayCount = 0;
+			extraCount = 0;
+			formTitleField.innerHTML = formTitleFieldInit;
+			orderArray = [];
+			let foodOptionsBoxArray = optionsBoxArray.slice();
+			foodOptionsBoxArray.shift();
+			for(let checkbox of foodOptionsBoxArray) {
+				checkbox.checked = false;
+			}
+			let foodOptionsArray = optionsArray.slice();
+			foodOptionsArray.shift();
+			for(let node of optionsArray) {
+				if(node.getAttribute("checked") == "true") {
+					node.classList.remove("option__active");
+					node.checked = false;
+					node.setAttribute("checked", "false");
+				}
+			}
+			return;
+		}
 		displayCount--;
 		let removeThis = event.target.innerText;
 		for(let i = 0; i < orderArray.length; i++) {
