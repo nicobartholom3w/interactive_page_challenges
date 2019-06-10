@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let optionsArray = Array.from(document.getElementsByClassName("option"));
 	let optionsBoxArray = Array.from(document.getElementsByClassName("option__box"));
 	let formTitleField = document.querySelector(".form__title");
-	let formTitleFieldInit = formTitleField.textContent;
+	let formTitleFieldInit = formTitleField.innerText;
 	let orderText;
 	let previousOrder;
 	let displayCount = 0;
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 
 	function displayOrder(selectedNode, event) {
 		if(displayCount < 2) {
-			orderText = event.target.textContent;
+			orderText = event.target.innerText;
 			if(displayCount == 1) {
 				orderText = previousOrder + ", " + orderText;
 			}
@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 		else {
 			extraCount++;
 			let extraLargeOrder = orderText + ", and " + extraCount + " more";
+			previousOrder = event.target.innerText;
 			formTitleField.innerHTML = extraLargeOrder;
 		}
 	}
@@ -79,8 +80,9 @@ document.addEventListener("DOMContentLoaded", function(event){
 					previousOrder = "";
 				}
 				else {
-					let split = orderText.split(", ");
-					orderText = split[0];
+					orderText = orderText.replace(event.target.innerText, "");
+					orderText = orderText.replace(" ,", "");
+					orderText = orderText.replace(", ", "");
 					previousOrder = orderText;
 					formTitleField.innerHTML = orderText;
 				}	
