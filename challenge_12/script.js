@@ -3,10 +3,11 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let optionsBoxArray = Array.from(document.getElementsByClassName("option__box"));
 	let formTitleField = document.querySelector(".form__title");
 	let formTitleFieldInit = formTitleField.innerText;
+	let orderArray = [];
 	let orderText;
-	let previousOrder;
 	let displayCount = 0;
 	let extraCount = 0;
+	let extraLargeOrder;
 	initCheckboxFunction();
 
 	function initCheckboxFunction() {
@@ -46,49 +47,57 @@ document.addEventListener("DOMContentLoaded", function(event){
 	}
 
 	function displayOrder(selectedNode, event) {
-		if(displayCount < 2) {
-			orderText = event.target.innerText;
-			if(displayCount == 1) {
-				orderText = previousOrder + ", " + orderText;
-			}
+		displayCount++;
+		orderText = event.target.innerText;
+		orderArray.push(orderText);
+		
+		if(displayCount <= 2) {
+			orderText = orderArray.join(", ");
 			formTitleField.innerHTML = orderText;
-			previousOrder = orderText;
-			displayCount++;
-		}
+		}	
 		else {
 			extraCount++;
-			let extraLargeOrder = orderText + ", and " + extraCount + " more";
-			previousOrder = event.target.innerText;
-			formTitleField.innerHTML = extraLargeOrder;
+			extraLargeOrder = ", and " + extraCount + " more";
+			let placeHolder = orderArray.slice();
+			for(let i = 0; i < extraCount; i++){
+				placeHolder.pop();
+			}
+			orderText = placeHolder.join(", ");
+			formTitleField.innerHTML = orderText + extraLargeOrder;
 		}
 	}
 
 	function subtractOrder(selectedNode, event) {
+		displayCount--;
+		let removeThis = event.target.innerText;
+		for(let i = 0; i < orderArray.length; i++) {
+			if(orderArray[i] == removeThis) {
+				orderArray.splice(i, 1);
+			}
+		}
+		let placeHolder = orderArray.slice();
+		for(let i = 0; i < (extraCount - 1); i++){
+			placeHolder.pop();
+		}
+		orderText = placeHolder.join(", ");
 		if(extraCount > 1) {
 			extraCount--;
-			formTitleField.innerHTML = orderText + ", and " + extraCount + " more";	
-		}
-		else {
+			extraLargeOrder = ", and " + extraCount + " more";
 			if(extraCount > 0) {
-				extraCount = 0;
-				formTitleField.innerHTML = orderText;
+				formTitleField.innerHTML = orderText + extraLargeOrder;
 			}
 			else {
-				if(displayCount <= 1) {
-					formTitleField.innerHTML = formTitleFieldInit;
-					orderText = "";
-					previousOrder = "";
-				}
-				else {
-					orderText = orderText.replace(event.target.innerText, "");
-					orderText = orderText.replace(" ,", "");
-					orderText = orderText.replace(", ", "");
-					previousOrder = orderText;
-					formTitleField.innerHTML = orderText;
-				}	
-				displayCount--;
+				formTitleField.innerHTML = orderText;
 			}
-			
+		}
+		else {
+			if(displayCount == 0) {
+				formTitleField.innerHTML = formTitleFieldInit;
+			}
+			else {
+				extraCount--;
+				formTitleField.innerHTML = orderText;
+			}
 		}
 	}
 
