@@ -19,8 +19,6 @@ body, html {
 		width: 62rem;
 		height: 100%;
 		display: flex;
-		justify-content: space-between;
-		padding: 0 .7rem;
 		align-items: center;
 	}
 }
@@ -34,10 +32,12 @@ body, html {
 .block {
 	height: 9.5rem;
 	border-radius: .25rem;
+	margin-left: .75rem;
+
 	
 	&-1 {
 		background-color: black;
-		width: 4.5rem;
+		width: 4.25rem;
 	}
 
 	&-2 {

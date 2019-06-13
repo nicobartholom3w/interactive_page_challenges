@@ -17,8 +17,6 @@ body, html {
     width: 62rem;
     height: 100%;
     display: flex;
-    justify-content: space-between;
-    padding: 0 .7rem;
     align-items: center; }
 
 .no-overflow {
@@ -28,10 +26,11 @@ body, html {
 
 .block {
   height: 9.5rem;
-  border-radius: .25rem; }
+  border-radius: .25rem;
+  margin-left: .75rem; }
   .block-1 {
     background-color: black;
-    width: 4.5rem; }
+    width: 4.25rem; }
   .block-2 {
     background-color: lightgrey;
     width: 6.25rem; }
