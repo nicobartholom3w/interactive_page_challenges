@@ -26,17 +26,29 @@ body, html {
 
 .block {
   height: 9.5rem;
-  border-radius: .25rem;
-  margin-left: .75rem; }
+  background-color: white;
+  border-radius: .25rem; }
   .block-1 {
-    background-color: black;
-    width: 4.25rem; }
+    width: 5rem; }
   .block-2 {
-    background-color: lightgrey;
-    width: 6.25rem; }
+    width: 7rem; }
   .block-3 {
-    background-color: darkgrey;
-    width: 12.5rem; }
+    width: 13.25rem; }
+  .block-inner {
+    border-radius: .25rem;
+    float: right; }
+    .block-inner-1 {
+      background-color: black;
+      height: 100%;
+      width: 4.25rem; }
+    .block-inner-2 {
+      background-color: lightgrey;
+      height: 100%;
+      width: 6.25rem; }
+    .block-inner-3 {
+      background-color: darkgrey;
+      height: 100%;
+      width: 12.5rem; }
 
 .overflow {
   overflow: visible;

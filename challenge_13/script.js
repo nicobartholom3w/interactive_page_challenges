@@ -5,28 +5,28 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let scrollBox = document.querySelector(".no-overflow");
 	let containerContent = document.querySelector(".container-content");
 	let blocksArray = Array.from(document.getElementsByClassName("block"));
+	let blocksArrayIndex = 0;
 
 	function scrollToRight(event) {
-		// get width of first element visible from left side
-		// blocksArray[i].offsetWidth
-		
-		scrollBox.scrollLeft += 150;
+		scrollBox.scrollLeft += blocksArray[blocksArrayIndex].offsetWidth;
 		if(scrollBox.scrollLeft > 0) {
 			scrollLeftButton.classList.add("scroll-button-left");
 		}
 		if(scrollBox.scrollLeft >= containerContent.offsetWidth/2) {
 			scrollRightButton.classList.remove("scroll-button-right");
 		}
+		blocksArrayIndex++;
 	}
 
 	function scrollToLeft(event) {
-		scrollBox.scrollLeft -= 50;
+		scrollBox.scrollLeft -= blocksArray[blocksArrayIndex].offsetWidth;
 		if(scrollBox.scrollLeft === 0){
 			scrollLeftButton.classList.remove("scroll-button-left");
 		}
 		if(scrollBox.scrollLeft <= containerContent.offsetWidth/2) {
 			scrollRightButton.classList.add("scroll-button-right");
 		}
+		blocksArrayIndex--;
 	}
 
 	scrollRightButton.onclick = scrollToRight;
