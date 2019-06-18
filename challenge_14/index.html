@@ -1,7 +1,12 @@
 <!doctype html>
 <html>
 <head>
-    <title>Validation</title>
+    <title>MY Validation</title>
+    <meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  	<link rel="stylesheet" href="./styles.css">
+  	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
     <!--
@@ -10,5 +15,27 @@
         and field confirmation (should check if the value of the linked field is the same).
         If form is invalid it shouldn't be submitted and errors must be shown.
     -->
+
+    <div class="card">
+    	<form action="">
+			<div class="form__entry">
+				<label class="form__entry-label" for="name">Name</label>
+				<input class="form__entry-input" id="name" name="name" type="text">
+			</div>
+			<div class="form__entry">
+				<label class="form__entry-label" for="email">Email</label>
+				<input class="form__entry-input" id="email" name="email" type="text">
+			</div>
+			<div class="form__entry">
+				<label class="form__entry-label" for="password">Password</label>
+				<input class="form__entry-input" id="password" name="password" type="text">
+			</div>
+			<div class="form__entry">
+				<label class="form__entry-label" for="password-confirmation">Confirm password</label>
+				<input class="form__entry-input" id="password-confirmation" name="password-confirmation" type="text">
+			</div>
+			<input type="submit" value="Submit" class="button">
+    	</form>
+    </div>
 </body>
 </html>

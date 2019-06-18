@@ -1,0 +1,68 @@
+body, html {
+	padding: 0;
+	margin: 0;
+ 	min-width: 100%;
+ 	min-height: 100%;
+ 	font-family: Arial, sans-serif;
+ 	background-color: rgb(136, 83, 208);
+}
+
+.card {
+	height: 25.15rem;
+	width: 27.5rem;
+	background-color: white;
+	border-radius: .25rem;
+	margin: 6.25rem auto 0;
+	padding: 1.25rem;
+	box-sizing: border-box;
+}
+
+.form {
+
+	&__entry {
+		margin-bottom: 1.25rem;
+
+		&-label {
+			display: block;
+			font-size: .9rem;
+		}
+
+		&-input {
+			outline: none;
+			border: none;
+			display: block;
+			border-bottom: solid .15rem rgb(222, 222, 222);
+			width: 100%;
+			padding: .75rem 0;
+			font-size: .9rem;
+		}
+	}
+}
+
+.alert {
+	
+
+	&-active {
+
+	}
+}
+
+.button {
+	border: none;
+	outline: none;
+	font-size: .9rem;
+	background-color: rgb(241, 241, 241);
+	padding: .7rem;
+	border-radius: .1rem;
+	cursor: pointer;
+	transition: all .1s;
+
+	&:hover {
+		background-color: rgb(232, 232, 232);
+	}
+
+	&:active {
+		transform: translateY(.1rem);
+	}
+
+}
