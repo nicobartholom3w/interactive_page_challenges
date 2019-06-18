@@ -16,9 +16,11 @@ document.addEventListener("DOMContentLoaded", function(event){
 			scrollRightButton.classList.remove("scroll-button-right");
 		}
 		blocksArrayIndex++;
+		// console.log("current scroll value after plus: " + scrollBox.scrollLeft + "\ncurrent block: " + blocksArray[blocksArrayIndex].offsetWidth);
 	}
 
 	function scrollToLeft(event) {
+		blocksArrayIndex--;
 		scrollBox.scrollLeft -= blocksArray[blocksArrayIndex].offsetWidth;
 		if(scrollBox.scrollLeft === 0){
 			scrollLeftButton.classList.remove("scroll-button-left");
@@ -26,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 		if(scrollBox.scrollLeft <= containerContent.offsetWidth/2) {
 			scrollRightButton.classList.add("scroll-button-right");
 		}
-		blocksArrayIndex--;
+		// console.log("current scroll value after minus : " + scrollBox.scrollLeft + "\ncurrent block: " + blocksArray[blocksArrayIndex].offsetWidth);
 	}
 
 	scrollRightButton.onclick = scrollToRight;
