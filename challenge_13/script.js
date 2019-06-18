@@ -6,35 +6,43 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let containerContent = document.querySelector(".container-content");
 	let blocksArray = Array.from(document.getElementsByClassName("block"));
 	let blocksArrayIndex = 0;
+	let position = 0;
 
 	function scrollToRight(event) {
-		scrollBox.scrollLeft += blocksArray[blocksArrayIndex].offsetWidth;
-		if(scrollBox.scrollLeft > 0) {
+		position += blocksArray[blocksArrayIndex].offsetWidth;
+		scrollBox.scrollTo({
+			top: 0,
+			left: position,
+			behavior: "smooth"
+		});
+		if(position > 0) {
 			scrollLeftButton.classList.add("scroll-button-left");
 		}
-		if(scrollBox.scrollLeft >= containerContent.offsetWidth/2) {
+		if(position >= containerContent.offsetWidth/2) {
 			scrollRightButton.classList.remove("scroll-button-right");
 		}
 		blocksArrayIndex++;
-		// console.log("current scroll value after plus: " + scrollBox.scrollLeft + "\ncurrent block: " + blocksArray[blocksArrayIndex].offsetWidth);
+		// console.log("current scroll value after plus: " + position + "\ncurrent block: " + blocksArray[blocksArrayIndex].offsetWidth);
 	}
 
 	function scrollToLeft(event) {
 		blocksArrayIndex--;
-		scrollBox.scrollLeft -= blocksArray[blocksArrayIndex].offsetWidth;
-		if(scrollBox.scrollLeft === 0){
+		position -= blocksArray[blocksArrayIndex].offsetWidth;
+		scrollBox.scrollTo({
+			top: 0,
+			left: position,
+			behavior: "smooth"
+		});
+		if(position === 0){
 			scrollLeftButton.classList.remove("scroll-button-left");
 		}
-		if(scrollBox.scrollLeft <= containerContent.offsetWidth/2) {
+		if(position <= containerContent.offsetWidth/2) {
 			scrollRightButton.classList.add("scroll-button-right");
 		}
 		// console.log("current scroll value after minus : " + scrollBox.scrollLeft + "\ncurrent block: " + blocksArray[blocksArrayIndex].offsetWidth);
 	}
-
 	scrollRightButton.onclick = scrollToRight;
 	scrollLeftButton.onclick = scrollToLeft;
-
-
 });
 
 	function isPermutation(strA, strB) {
