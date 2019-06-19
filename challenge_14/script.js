@@ -4,17 +4,6 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let inputAlertArray = Array.from(document.getElementsByClassName("alert"));
 	let submitButton = document.querySelector(".button");
 
-	// email.addEventListener("input", (event) => {
-	// 	for(let k = 0; k < inputArray.length; k++) {
-	// 		if(!inputArray[k].validity.valid) {
-	// 			inputAlertArray[k].classList.remove("alert-active");
-	// 		}
-	// 	}
-	// 	if(inputArray[2].value === inputArray[3].value) {
-	// 		inputAlertArray[3].classList.remove("alert-active");
-	// 	}
-	// }, false);
-
 	form.addEventListener("submit", (event) => {
 		for(let i = 0; i < inputArray.length; i++) {
 			if(!inputArray[i].validity.valid) {
