@@ -17,22 +17,26 @@
     -->
 
     <div class="card">
-    	<form action="">
+    	<form novalidate action="" class="form">
 			<div class="form__entry">
 				<label class="form__entry-label" for="name">Name</label>
-				<input class="form__entry-input" id="name" name="name" type="text">
+				<input required class="form__entry-input" id="name" name="name" type="text">
+				<div class="alert alert-name" aria-live="polite">Field is required</div>
 			</div>
 			<div class="form__entry">
 				<label class="form__entry-label" for="email">Email</label>
-				<input class="form__entry-input" id="email" name="email" type="text">
+				<input class="form__entry-input" id="email" name="email" type="email">
+				<div class="alert alert-email" aria-live="polite">Enter valid email</div>
 			</div>
 			<div class="form__entry">
 				<label class="form__entry-label" for="password">Password</label>
-				<input class="form__entry-input" id="password" name="password" type="text">
+				<input required class="form__entry-input" id="password" name="password" type="password">
+				<div class="alert alert-password" aria-live="polite">Field is required</div>
 			</div>
 			<div class="form__entry">
 				<label class="form__entry-label" for="password-confirmation">Confirm password</label>
-				<input class="form__entry-input" id="password-confirmation" name="password-confirmation" type="text">
+				<input class="form__entry-input" id="password-confirmation" name="password-confirmation" type="password">
+				<div class="alert alert-password-confirmation" aria-live="polite">Confirmation failed</div>
 			</div>
 			<input type="submit" value="Submit" class="button">
     	</form>
