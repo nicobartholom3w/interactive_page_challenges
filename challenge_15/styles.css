@@ -53,6 +53,9 @@ body, html {
     align-items: center;
     justify-content: center;
     border-radius: .25rem; }
+    .color-highlight:focus {
+      background-color: white;
+      outline: none; }
     .color-highlight-active {
       background-color: white; }
   .color-blue {
