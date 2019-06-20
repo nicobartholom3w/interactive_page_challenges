@@ -1,0 +1,95 @@
+body, html {
+	padding: 0;
+	margin: 0;
+ 	min-width: 100%;
+ 	min-height: 100%;
+ 	font-family: sans-serif;
+ 	background-color: rgb(51, 51, 51);
+ 	// background-color: pink;
+}
+
+
+
+.instructions__card {
+	width: 27.5rem;
+	height: 3.75rem;
+	background-color: white;
+	border-radius: .25rem;
+	margin: 6.25rem auto 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&-content {
+		font-size: .9rem;
+	}
+}
+
+.select {
+	height: 8.75rem;
+	width: 36.25rem;
+	background-color: rgba(0, 0, 0, .5);
+	margin: 3rem auto 0;
+	border-radius: .25rem;
+	position: absolute;
+	bottom: 40%;
+	top: 40%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	display: none;
+
+	&-content {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: space-around;
+		padding: .75rem;
+		box-sizing: border-box;
+		align-items: center;
+	}
+
+	&-active {
+		display: block;
+	}
+
+}
+
+.color {
+	height: 6.25rem;
+	width: 6.25rem;
+	border-radius: .25rem;
+
+	&-highlight {
+		height: 6.5rem;
+		width: 6.5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: .25rem;
+
+		&-active {
+			background-color: white;
+		}
+	}
+
+	&-blue {
+		background-color: rgb(54, 152, 219);
+	}
+
+	&-green {
+		background-color: rgb(46, 204, 113);
+	}
+
+	&-orange {
+		background-color: rgb(243, 156, 18);
+	}
+
+	&-red {
+		background-color: rgb(231, 76, 60);
+	}
+
+	&-purple {
+		background-color: rgb(155, 69, 182);
+	}
+}

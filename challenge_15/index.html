@@ -1,7 +1,12 @@
 <!doctype html>
 <html>
 <head>
-    <title>Color picker</title>
+    <title>MY color picker</title>
+    <meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  	<link rel="stylesheet" href="./styles.css">
+  	<script type="text/javascript" src="script.js"></script>
 </head>
 <body>
     <!--
@@ -10,5 +15,29 @@
         (The same way alt + tab through apps does)
         When shift + tab are released - change the color of the body to the chosen color.
     -->
+        <div class="instructions__card">
+          <div class="instructions__card-content">Press Shift + Tab to choose color.</div>
+        </div>
+    
+
+        <div class="select">
+          <div class="select-content">
+            <div class="color-highlight">
+              <div class="color color-blue"></div>
+            </div>
+            <div class="color-highlight">
+              <div class="color color-green"></div>
+            </div>
+            <div class="color-highlight">
+              <div class="color color-orange"></div>
+            </div>
+            <div class="color-highlight">
+              <div class="color color-red"></div>
+            </div>
+            <div class="color-highlight">
+              <div class="color color-purple"></div>
+            </div>
+          </div>
+        </div>
 </body>
 </html>
