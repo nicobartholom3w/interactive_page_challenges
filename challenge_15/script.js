@@ -3,12 +3,11 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let colorHighlightArray = Array.from(document.getElementsByClassName("color-highlight"));
 	let colorsArray = Array.from(document.getElementsByClassName("color"));
 	let colorObj = {};
-	currentColorIndex = 0;
+	let currentColorIndex = 0;
 	let displayed = false;
 
 	function showOptionsDisplay(event) {
 		event.stopPropagation();
-		
 		if(event.shiftKey && event.keyCode === 9) {
 			event.preventDefault();
 			optionsDisplay.classList.add("select-active");
@@ -21,8 +20,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 		if(event.keyCode === 16 && displayed) {
 			changeColor(currentColorIndex);
 			optionsDisplay.classList.remove("select-active");
-		}
-		
+		}	
 	}
 
 	function changeColor(currentColorIndex) {
@@ -34,12 +32,11 @@ document.addEventListener("DOMContentLoaded", function(event){
 		colorHighlightArray[currentColorIndex].classList.remove("color-highlight-active");
 		if(currentColorIndex == colorsArray.length - 1){
 			currentColorIndex = 0;
-			colorHighlightArray[currentColorIndex].classList.add("color-highlight-active");
 		}
 		else {
 			currentColorIndex++;
-			colorHighlightArray[currentColorIndex].classList.add("color-highlight-active");	
 		}
+		colorHighlightArray[currentColorIndex].classList.add("color-highlight-active");	
 		return currentColorIndex;
 	}
 
