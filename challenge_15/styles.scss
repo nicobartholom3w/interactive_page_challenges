@@ -4,8 +4,6 @@ body, html {
  	min-width: 100%;
  	min-height: 100%;
  	font-family: sans-serif;
- 	background-color: rgb(51, 51, 51);
- 	// background-color: pink;
 }
 
 
@@ -37,7 +35,8 @@ body, html {
 	left: 0;
 	right: 0;
 	margin: auto;
-	display: none;
+	transition: opacity .3s;
+	opacity: 0;
 
 	&-content {
 		height: 100%;
@@ -50,7 +49,7 @@ body, html {
 	}
 
 	&-active {
-		display: block;
+		opacity: 1;
 	}
 
 }

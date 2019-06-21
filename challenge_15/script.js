@@ -8,13 +8,13 @@ document.addEventListener("DOMContentLoaded", function(event){
 
 	function showOptionsDisplay(event) {
 		event.stopPropagation();
-		event.preventDefault();
+		
 		if(event.shiftKey && event.keyCode === 9) {
+			event.preventDefault();
 			optionsDisplay.classList.add("select-active");
-			changeHighlight(currentColorIndex);
+			currentColorIndex = changeHighlight(currentColorIndex);
 			displayed = true;
 		}
-		return currentColorIndex;
 	}
 
 	function removeOptionsDisplay(event) {
@@ -26,21 +26,23 @@ document.addEventListener("DOMContentLoaded", function(event){
 	}
 
 	function changeColor(currentColorIndex) {
-		document.body.style.backgroundColor = colorsArray[currentColorIndex].style.backgroundColor;
+		let newColor = getComputedStyle(colorsArray[currentColorIndex]);
+		document.body.style.backgroundColor = newColor.getPropertyValue("background-color");
 	}
 
 	function changeHighlight(currentColorIndex){
 		colorHighlightArray[currentColorIndex].classList.remove("color-highlight-active");
 		if(currentColorIndex == colorsArray.length - 1){
-			colorHighlightArray[currentColorIndex--].classList.add("color-highlight-active");
+			currentColorIndex = 0;
+			colorHighlightArray[currentColorIndex].classList.add("color-highlight-active");
 		}
-		colorHighlightArray[currentColorIndex++].classList.add("color-highlight-active");
+		else {
+			currentColorIndex++;
+			colorHighlightArray[currentColorIndex].classList.add("color-highlight-active");	
+		}
 		return currentColorIndex;
 	}
 
 	document.onkeydown = showOptionsDisplay;
-	document.addEventListener("keyup", (event) => {
-		console.log("keyup");
-		removeOptionsDisplay(event);
-	});
+	document.onkeyup = removeOptionsDisplay;
 });
