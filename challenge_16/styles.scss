@@ -80,6 +80,7 @@ body, html {
 	color: white;
 	font-weight: bold;
 	animation: pulse 1s infinite;
+	transition: all .3s;
 
 	&-area {
 		display: flex;
@@ -95,6 +96,18 @@ body, html {
 	}
 	100% {
 		transform: scale(1);
+	}
+}
+
+@keyframes fade-out {
+	0% {
+		transform: scale(1.1);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		opacity: 0;
 	}
 }
 

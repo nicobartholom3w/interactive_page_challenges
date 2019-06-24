@@ -60,7 +60,8 @@ body, html {
   box-sizing: border-box;
   color: white;
   font-weight: bold;
-  animation: pulse 1s infinite; }
+  animation: pulse 1s infinite;
+  transition: all .3s; }
   .bubble-area {
     display: flex; }
 
@@ -71,5 +72,12 @@ body, html {
     transform: scale(1.1); }
   100% {
     transform: scale(1); } }
+@keyframes fade-out {
+  0% {
+    transform: scale(1.1); }
+  50% {
+    transform: scale(1.2); }
+  100% {
+    opacity: 0; } }
 
 /*# sourceMappingURL=styles.css.map */
