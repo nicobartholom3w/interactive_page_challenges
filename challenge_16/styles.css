@@ -50,7 +50,7 @@ body, html {
   height: 2.5rem;
   width: 2.5rem;
   background-color: #f99644;
-  margin-right: 1rem;
+  margin: 1rem 1rem 2rem 0;
   border-radius: 50%;
   text-align: center;
   display: flex;
@@ -58,10 +58,17 @@ body, html {
   align-items: center;
   box-sizing: border-box;
   color: white;
-  font-weight: bold; }
+  font-weight: bold;
+  animation: pulse 1.25s infinite; }
   .bubble-area {
-    min-height: 5rem;
-    display: flex;
-    align-items: center; }
+    display: flex; }
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8); }
+  50% {
+    transform: scale(1); }
+  100% {
+    transform: scale(0.8); } }
 
 /*# sourceMappingURL=styles.css.map */
