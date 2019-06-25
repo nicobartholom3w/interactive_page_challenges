@@ -12,9 +12,13 @@ body, html {
   background-color: white;
   margin: 6.25rem auto 0;
   border-radius: .25rem;
-  overflow: hidden; }
+  position: relative; }
   .card__content {
-    padding: 1.25rem; }
+    height: 100%;
+    width: 100%;
+    padding: 1.25rem;
+    overflow: auto;
+    box-sizing: border-box; }
 
 .block {
   height: 6.25rem;
@@ -22,5 +26,23 @@ body, html {
   background-color: #ebebeb;
   border-radius: .25rem;
   margin-bottom: .75rem; }
+
+.scroll {
+  height: 23.5rem;
+  width: .35rem;
+  background-color: #f5e8f3;
+  position: absolute;
+  top: .75rem;
+  right: .35rem;
+  border-radius: .15rem; }
+  .scroll-bar {
+    height: 13rem;
+    width: .35rem;
+    background-color: #48aba9;
+    border-radius: .15rem;
+    position: absolute; }
+
+::-webkit-scrollbar {
+  display: none; }
 
 /*# sourceMappingURL=styles.css.map */
