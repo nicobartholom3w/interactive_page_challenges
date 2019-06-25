@@ -3,14 +3,17 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let formInput = document.querySelector(".form__input");
 
 	function createBubble(event) {
+		if(formInput.value === "") {
+			return;
+		}
 		event.preventDefault();
 		let bubble = document.createElement("div");
 		bubble.classList.add("bubble");
 		bubbleArea.appendChild(bubble);
 		let time = Number.parseInt(formInput.value);
+		formInput.value = "";
 		bubble.innerText = time;
-		setInterval(countDown, 1000, time, bubble);
-		// bubblePop(bubble);
+		setTimeout(countDown, 1000, time, bubble);
 	}
 
 	function countDown(time, bubble) {
@@ -20,8 +23,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 		}
 		time--;
 		bubble.innerText = time;
-		setInterval(countDown, 1000, time, bubble);
-
+		setTimeout(countDown, 1000, time, bubble);
 	}
 
 	function bubblePop(bubble) {
