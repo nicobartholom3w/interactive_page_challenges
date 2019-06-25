@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 	function bubblePop(bubble) {
 		bubble.style.animation = "fade-out .5s";
 		setInterval(() => {
-			bubbleArea.removeChild(bubble);
+			bubble.remove();
 		}, 500)
 	}
 
