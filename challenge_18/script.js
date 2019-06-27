@@ -1,4 +1,32 @@
 document.addEventListener("DOMContentLoaded", function(event){
+	let playButton = document.querySelector(".video-overlay");
+	let video = document.querySelector(".video-view");
+	let isPlaying = false;
+
+	function playOrPause(event) {
+		if(!isPlaying) {
+			isPlaying = true;
+			playButton.style.opacity = "0";
+			setTimeout(() => video.play(), 300);
+		}
+		else {
+			video.pause();
+			playButton.style.opacity = "1";
+			isPlaying = false;
+		}
+		
+	}
+
+	playButton.onclick = playOrPause;
+
+
+
+
+
+
+
+
+
 
 
 
@@ -60,37 +88,4 @@ let reverseResult = [[ 4, 8, 12, 16],
 				  	 [ 2, 6, 10, 14],
 				  	 [ 1, 5, 9, 13]]
 
-console.log(rotateMatrix(matrix));
-
-// let temp = [];
-// 	let length = matrix.length;
-// 	let half = Math.floor(length /2);
-// 	for(let start = 0; start < half; start++) {
-// 		for(let i = start; i < length - 1; i++) {
-// 			temp.push(matrix[start][i]);
-// 			matrix[start][i] = matrix[length - i - 1][start];
-// 		}
-// 		for(let k = start; k < length; k++) {
-// 			temp.push(matrix[k][length - 1]);
-// 			matrix[k][length - 1] = temp[0];
-// 			temp.shift();
-// 		}
-// 		for(let b = length - length/2; b > start; b--) {
-// 			temp.push(matrix[length - 1][b]);
-// 			matrix[length - 1][b] = temp[0];
-// 			temp.shift();
-// 		}
-// 		for(let p = matrix.length - 1; p > start; p--) {
-// 			temp.push(matrix[p][start]);
-// 			matrix[p][start] = temp[0];
-// 			temp.shift();
-// 		}
-// 		length = half;
-// 	}
-// 	return matrix;
-
-
-
-
-
-
+// console.log(rotateMatrix(matrix));

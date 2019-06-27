@@ -19,12 +19,12 @@ body, html {
 .video {
 	height: 21.25rem;
 	width: 100%;
-	
 	position: relative;
 
 	&-view {
 		height: 100%;
 		width: 100%;
+		cursor: pointer;
 	}
 
 	&-overlay {
