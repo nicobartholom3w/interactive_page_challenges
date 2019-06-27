@@ -1,0 +1,108 @@
+body, html {
+	padding: 0;
+	margin: 0;
+ 	min-width: 100%;
+ 	min-height: 100%;
+ 	font-family: sans-serif;
+}
+
+.base {
+	width: 37.5rem;
+	height: 25rem;
+	background-color: black;
+	margin: 6.25rem auto 0;
+	border-radius: .25rem;
+	position: relative;
+
+}
+
+.video {
+	height: 21.25rem;
+	width: 100%;
+	
+	position: relative;
+
+	&-view {
+		height: 100%;
+		width: 100%;
+	}
+
+	&-overlay {
+		height: 21.25rem;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.4);
+		position: absolute;
+		top: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		transition: all .3s;
+
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+	}
+}
+
+.play-icon {
+	color: white;
+	transform: scale(2);
+
+	&-circle {
+		height: 3.5rem;
+		width: 3.5rem;
+		color: white;
+		border-radius: 50%;
+		border: solid .15rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.nav {
+	height: 3.75rem;
+	width: 100%;
+	background-color: rgb(74, 54, 124);
+	border-bottom-right-radius: .25rem; 
+	border-bottom-left-radius: .25rem;
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+
+	&-buttons {
+		margin-left: 1rem;
+	}
+	
+	&-progress {
+		position: relative;
+		height: .25rem;
+		width: 21.5rem;
+		background-color: rgb(110, 95, 151);
+		margin-left: 1.25rem;
+		border-radius: .25rem;
+
+		&-bar {
+			position: absolute;
+			height: 100%;
+			background-color: rgb(182, 175, 203);
+		}
+	}
+}
+
+.button {
+	border: none;
+	color: rgba(255, 255, 255, .75);
+	background-color: transparent;
+	font-weight: bold;
+	font-size: .75rem;
+	cursor: pointer;
+	transition: all .2s;
+
+	&:hover {
+		color: rgba(255, 255, 255, 1);
+	}
+}
+

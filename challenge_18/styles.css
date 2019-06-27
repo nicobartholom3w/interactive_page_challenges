@@ -1,0 +1,85 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-family: sans-serif; }
+
+.base {
+  width: 37.5rem;
+  height: 25rem;
+  background-color: black;
+  margin: 6.25rem auto 0;
+  border-radius: .25rem;
+  position: relative; }
+
+.video {
+  height: 21.25rem;
+  width: 100%;
+  position: relative; }
+  .video-view {
+    height: 100%;
+    width: 100%; }
+  .video-overlay {
+    height: 21.25rem;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s; }
+    .video-overlay:hover {
+      background-color: rgba(0, 0, 0, 0.5); }
+
+.play-icon {
+  color: white;
+  transform: scale(2); }
+  .play-icon-circle {
+    height: 3.5rem;
+    width: 3.5rem;
+    color: white;
+    border-radius: 50%;
+    border: solid .15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+.nav {
+  height: 3.75rem;
+  width: 100%;
+  background-color: #4a367c;
+  border-bottom-right-radius: .25rem;
+  border-bottom-left-radius: .25rem;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center; }
+  .nav-buttons {
+    margin-left: 1rem; }
+  .nav-progress {
+    position: relative;
+    height: .25rem;
+    width: 21.5rem;
+    background-color: #6e5f97;
+    margin-left: 1.25rem;
+    border-radius: .25rem; }
+    .nav-progress-bar {
+      position: absolute;
+      height: 100%;
+      background-color: #b6afcb; }
+
+.button {
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  background-color: transparent;
+  font-weight: bold;
+  font-size: .75rem;
+  cursor: pointer;
+  transition: all .2s; }
+  .button:hover {
+    color: white; }
+
+/*# sourceMappingURL=styles.css.map */

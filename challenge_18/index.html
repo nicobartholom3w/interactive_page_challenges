@@ -1,7 +1,13 @@
 <!doctype html>
 <html>
 <head>
-    <title>Video player</title>
+    <title>My Video Player</title>
+    <meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  	<link rel="stylesheet" href="./styles.css">
+  	<script type="text/javascript" src="script.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 <body>
     <!--
@@ -10,5 +16,28 @@
         Video can be fast forwarded by 10 seconds in both directions and reset to the start.
         You can get an example video here: https://frontloops.io/video/peru.mp4
     -->
+      <div class="base">
+        <div class="video">
+          <video class="video-view" src="https://frontloops.io/video/peru.mp4">
+            
+            </div>
+          </video>
+          <div class="video-overlay">
+            <div class="play-icon-circle">
+              <i class="material-icons play-icon">play_arrow</i>
+          </div>
+        </div>
+        <div class="nav">
+          <nav class="nav-buttons">
+            <button class="button">BACK 10S</button>
+            <button class="button">SKIP 10S</button>
+            <button class="button">RESET</button>
+          </nav>
+          <div class="nav-progress">
+            <div class="nav-progress-bar"></div>
+          </div>
+        </div>
+      </div>
+
 </body>
 </html>
