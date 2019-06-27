@@ -77,17 +77,18 @@ body, html {
 	}
 	
 	&-progress {
-		position: relative;
 		height: .25rem;
 		width: 21.5rem;
 		background-color: rgb(110, 95, 151);
 		margin-left: 1.25rem;
 		border-radius: .25rem;
+		display: flex;
 
 		&-bar {
-			position: absolute;
 			height: 100%;
 			background-color: rgb(182, 175, 203);
+			display: flex;
+			flex-basis: 0;
 		}
 	}
 }
@@ -100,6 +101,7 @@ body, html {
 	font-size: .75rem;
 	cursor: pointer;
 	transition: all .2s;
+	outline: none;
 
 	&:hover {
 		color: rgba(255, 255, 255, 1);

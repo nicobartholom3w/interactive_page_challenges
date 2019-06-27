@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let playButton = document.querySelector(".video-overlay");
 	let video = document.querySelector(".video-view");
 	let isPlaying = false;
+	let backButton = document.querySelector(".back");
+	let skipButton = document.querySelector(".skip");
+	let resetButton = document.querySelector(".reset");
+	let progressBar = document.querySelector(".nav-progress-bar");
+	let finalBarLengthStr = getComputedStyle(document.querySelector(".nav-progress")).width;
+	let finalBarLengthInt = Number.parseInt(finalBarLengthStr.substring(0, finalBarLengthStr.length-2));
 
 	function playOrPause(event) {
 		if(!isPlaying) {
@@ -13,15 +19,32 @@ document.addEventListener("DOMContentLoaded", function(event){
 			video.pause();
 			playButton.style.opacity = "1";
 			isPlaying = false;
-		}
-		
+		}	
+	}
+
+	function resetVideo(event) {
+		isPlaying = true;
+		playOrPause(event);
+		video.currentTime = 0;
+		updateBar(event);
+	}
+
+	function skip(event) {
+		video.currentTime += parseFloat(this.dataset.skip);
+		updateBar(event);
+	}
+
+	function updateBar(event) {
+		let percent = (video.currentTime / video.duration) * finalBarLengthInt;
+		percent = percent.toString();
+		progressBar.style.flexBasis = percent + "px";
 	}
 
 	playButton.onclick = playOrPause;
-
-
-
-
+	resetButton.onclick = resetVideo;
+	skipButton.onclick = skip;
+	backButton.onclick = skip;
+	video.ontimeupdate = updateBar;
 
 
 
