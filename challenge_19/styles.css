@@ -27,13 +27,11 @@ body, html {
   border-radius: .25rem;
   cursor: pointer; }
   .bar__progress {
-    width: 5rem;
+    width: 0rem;
     height: 100%;
     background-color: #7f8d8c;
-    position: relative;
-    transition: all .2s; }
-    .bar__progress:before {
-      content: "";
+    position: relative; }
+    .bar__progress-marker {
       height: 1rem;
       width: 1rem;
       background-color: white;
@@ -42,8 +40,9 @@ body, html {
       position: absolute;
       top: -.5rem;
       left: -.75rem;
-      cursor: pointer; }
-    .bar__progress:hover:before {
-      border-color: black; }
+      cursor: pointer;
+      transition: border-color .2s; }
+      .bar__progress-marker:hover {
+        border-color: black; }
 
 /*# sourceMappingURL=styles.css.map */
