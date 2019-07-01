@@ -1,0 +1,49 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-family: sans-serif;
+  background-color: #faa47f; }
+
+.card {
+  height: 7.25rem;
+  width: 30rem;
+  background-color: white;
+  border-radius: .25rem;
+  margin: 6.25rem auto 0; }
+  .card__content {
+    padding: 2.5rem 2.25rem; }
+
+.percentage-display {
+  font-size: .85rem;
+  font-weight: bold; }
+
+.bar {
+  width: 25rem;
+  height: .25rem;
+  background-color: #ebebeb;
+  margin: 1rem 0;
+  border-radius: .25rem;
+  cursor: pointer; }
+  .bar__progress {
+    width: 5rem;
+    height: 100%;
+    background-color: #7f8d8c;
+    position: relative;
+    transition: all .2s; }
+    .bar__progress:before {
+      content: "";
+      height: 1rem;
+      width: 1rem;
+      background-color: white;
+      border-radius: 50%;
+      border: solid 0.15rem #c3c3c3;
+      position: absolute;
+      top: -.5rem;
+      left: -.75rem;
+      cursor: pointer; }
+    .bar__progress:hover:before {
+      border-color: black; }
+
+/*# sourceMappingURL=styles.css.map */
