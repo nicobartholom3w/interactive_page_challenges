@@ -23,26 +23,32 @@ body, html {
   width: 25rem;
   height: .25rem;
   background-color: #ebebeb;
-  margin: 1rem 0;
-  border-radius: .25rem;
-  cursor: pointer; }
+  margin: .75rem 0;
+  position: relative; }
   .bar__progress {
-    width: 0rem;
+    width: 100%;
     height: 100%;
     background-color: #7f8d8c;
-    position: relative; }
-    .bar__progress-marker {
-      height: 1rem;
-      width: 1rem;
+    background-color: #ebebeb;
+    position: absolute;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: .25rem; }
+    .bar__progress::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 1.25rem;
+      width: 1.25rem;
       background-color: white;
       border-radius: 50%;
       border: solid 0.15rem #c3c3c3;
       position: absolute;
-      top: -.5rem;
+      top: -.45rem;
       left: -.75rem;
       cursor: pointer;
-      transition: border-color .2s; }
-      .bar__progress-marker:hover {
+      transition: border-color .2s;
+      outline: none; }
+      .bar__progress::-webkit-slider-thumb:hover {
         border-color: black; }
 
 /*# sourceMappingURL=styles.css.map */
