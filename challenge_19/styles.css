@@ -13,23 +13,22 @@ body, html {
   border-radius: .25rem;
   margin: 6.25rem auto 0; }
   .card__content {
-    padding: 2.5rem 2.25rem; }
+    padding: 2.5rem 1.5rem; }
 
 .percentage-display {
-  font-size: .85rem;
-  font-weight: bold; }
+  font-size: .9rem;
+  font-weight: bold;
+  margin-left: .75rem; }
 
 .bar {
-  width: 25rem;
+  width: 27rem;
   height: .25rem;
-  background-color: #ebebeb;
   margin: .75rem 0;
   position: relative; }
   .bar__progress {
     width: 100%;
     height: 100%;
-    background-color: #7f8d8c;
-    background-color: #ebebeb;
+    background: linear-gradient(to right, #7f8d8c 30%, #ebebeb 30%, #ebebeb 100%);
     position: absolute;
     -webkit-appearance: none;
     outline: none;
@@ -37,14 +36,12 @@ body, html {
     border-radius: .25rem; }
     .bar__progress::-webkit-slider-thumb {
       -webkit-appearance: none;
+      appearance: none;
       height: 1.25rem;
       width: 1.25rem;
       background-color: white;
       border-radius: 50%;
       border: solid 0.15rem #c3c3c3;
-      position: absolute;
-      top: -.45rem;
-      left: -.75rem;
       cursor: pointer;
       transition: border-color .2s;
       outline: none; }

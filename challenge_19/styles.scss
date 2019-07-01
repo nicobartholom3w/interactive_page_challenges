@@ -15,19 +15,20 @@ body, html {
 	margin: 6.25rem auto 0;
 
 	&__content {
-		padding: 2.5rem 2.25rem;
+		padding: 2.5rem 1.5rem;
 	}
 }
 
 .percentage-display {
-	font-size: .85rem;
+	font-size: .9rem;
 	font-weight: bold;
+	margin-left: .75rem;
 }
 
 .bar {
-	width: 25rem;
+	width: 27rem;
 	height: .25rem;
-	background-color: rgb(235, 235, 235);
+	// background-color: rgb(235, 235, 235);
 	margin: .75rem 0;
 	// border-radius: .25rem;
 	// cursor: pointer;
@@ -36,8 +37,9 @@ body, html {
 	&__progress {
 		width: 100%;
 		height: 100%;
-		background-color: rgb(127, 141, 140);
-		background-color: rgb(235, 235, 235);
+		// background-color: rgb(127, 141, 140);
+		// background-color: rgb(235, 235, 235);
+		background: linear-gradient(to right, rgb(127, 141, 140) 30%,  rgb(235, 235, 235) 30% , rgb(235, 235, 235) 100%);
 		position: absolute;
 		-webkit-appearance: none;
 		outline: none;
@@ -46,14 +48,12 @@ body, html {
 
 		&::-webkit-slider-thumb {
 			-webkit-appearance: none;
+			appearance: none;
 			height: 1.25rem;
 			width: 1.25rem;
 			background-color: white;
 			border-radius: 50%;
 			border: solid .15rem rgb(195, 195, 195);
-			position: absolute;
-			top: -.45rem;
-			left: -.75rem;
 			cursor: pointer;
 			transition: border-color .2s;
 			outline: none;
@@ -62,6 +62,9 @@ body, html {
 				border-color: black;
 			}
 		}
+
+
+
 		// &-marker {
 		// 	height: 1rem;
 		// 	width: 1rem;
