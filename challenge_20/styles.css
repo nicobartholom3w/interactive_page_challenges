@@ -23,7 +23,6 @@ body, html {
   min-width: 100%;
   background-color: white;
   box-sizing: border-box;
-  padding: 1.25rem 1.5rem;
   transition: all .3s; }
   .option-1 {
     border-top-right-radius: .25rem;
@@ -36,18 +35,28 @@ body, html {
   .option-3 {
     border-bottom-right-radius: .25rem;
     border-bottom-left-radius: .25rem; }
-  .option-listitem {
+  .option__listitem {
     font-size: .9rem;
-    font-weight: bold; }
-  .option-description {
+    font-weight: bold;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 1.25rem 1.5rem; }
+    .option__listitem:hover {
+      background-color: #f8f8f8; }
+    .option__listitem-active:hover {
+      background-color: white; }
+  .option__description {
     font-size: .85rem;
-    margin-top: 1.25rem;
+    padding: 0rem 1.5rem 1.5rem 1.5rem;
+    line-height: 1rem;
     display: none;
     transition: all .3s; }
-    .option-description-active {
+    .option__description-active {
       display: block; }
   .option-active {
-    padding: 1.5rem 2.5rem;
+    padding: 0rem 1rem;
     width: 27rem;
     z-index: 1;
     border-radius: .25rem;
