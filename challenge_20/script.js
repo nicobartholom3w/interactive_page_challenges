@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let optionsArray = Array.from(document.getElementsByClassName("option"));
 	let optionsButtonsArray = Array.from(document.getElementsByClassName("option__listitem"));
 	let optionsDescriptionArray = Array.from(document.getElementsByClassName("option__description"));
-	let buttonHeight = parseInt(getComputedStyle(document.querySelector(".option")).height);
+	let buttonHeight = document.querySelector(".option").clientHeight;
 	let option = {};
 
 	addListener(optionsButtonsArray);
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 	function makeActive(element) {
 		let num = Number.parseInt(element.getAttribute("data-option"));
 		let currentObj = option[num];
-		let currentDescriptionHeight = parseInt(getComputedStyle(currentObj.optionDescription).height);
+		let currentDescriptionHeight = currentObj.optionDescription.clientHeight;
 		currentObj.optionBlock.classList.add("option-active");
 		currentObj.optionButton.classList.add("option__listitem-active");
 		currentObj.optionBlock.style.height = currentDescriptionHeight + buttonHeight + "px";
@@ -49,6 +49,4 @@ document.addEventListener("DOMContentLoaded", function(event){
 		currentObj.optionBlock.style.height = buttonHeight + "px";
 		element.setAttribute("active", "false");
 	}
-
-
 });
