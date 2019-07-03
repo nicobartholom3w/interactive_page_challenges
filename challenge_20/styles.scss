@@ -30,7 +30,7 @@ body, html {
 	position: relative;
 	height: 56px;
 	width: 25rem;
-	transition: padding-left .3s, padding-right .3s, height .3s;
+	transition: padding-left .4s, padding-right .4s, height .2s;
 
 	&-active {
 		padding-left: 1rem;
@@ -39,6 +39,7 @@ body, html {
 		border-radius: .25rem;
 		border-color: transparent;
 		box-shadow: 0 .13rem .15rem 0 rgba(0, 0, 0, 0.3);
+		transition: padding-left .2s, padding-right .2s, height .4s;
 	}
 
 	&-1 {

@@ -27,14 +27,15 @@ body, html {
   position: relative;
   height: 56px;
   width: 25rem;
-  transition: padding-left .3s, padding-right .3s, height .3s; }
+  transition: padding-left .4s, padding-right .4s, height .2s; }
   .option-active {
     padding-left: 1rem;
     padding-right: 1rem;
     z-index: 1;
     border-radius: .25rem;
     border-color: transparent;
-    box-shadow: 0 0.13rem 0.15rem 0 rgba(0, 0, 0, 0.3); }
+    box-shadow: 0 0.13rem 0.15rem 0 rgba(0, 0, 0, 0.3);
+    transition: padding-left .2s, padding-right .2s, height .4s; }
   .option-1 {
     border-top-right-radius: .25rem;
     border-top-left-radius: .25rem;
