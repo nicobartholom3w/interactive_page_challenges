@@ -3,13 +3,16 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let listItemAttributeValues = ["list-item", "listitem"];
 	let itemNum = 0;
 	let list = document.querySelector(".list");
+	listItemArr = [];
 	let input = document.querySelector(".input__text");
+	let storage = window.localStorage;
 
 	function addTask(event) {
 		event.preventDefault();
-		localStorage.setItem(itemNum, input.value);
+		localStorage.setItem("item# " + itemNum, input.value);
 		itemNum++;
 		createListItem(input.value);
+		input.value = "";
 	}
 
 	function createListItem(listItemValue) {
@@ -19,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 		}
 		list.append(listItem);
 		listItem.innerText = listItemValue;
+		listItemArr.push(listItem);
 	} 
 
 	function setAllAttributes(element, attribute, value) {
@@ -26,11 +30,22 @@ document.addEventListener("DOMContentLoaded", function(event){
 	}
 
 	function clearList(event) {
+		event.preventDefault();
+		localStorage.clear();
+		for(let item of listItemArr) {
+			item.remove();
+		}
+	}
 
+	function keepData(event) {
+		for(let k = 0; k >= Object.keys(storage).length; k++) {
+
+		}
 	}
 
 	document.onsubmit = addTask;
 	document.onreset = clearList;
+	document.onload = keepData;
 });
 
 
