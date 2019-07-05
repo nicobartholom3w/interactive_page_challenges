@@ -15,10 +15,10 @@ body, html {
   margin: 6.25rem auto 0;
   box-shadow: 0 1px 0.25rem 0 rgba(10, 10, 10, 0.2); }
   .container__content {
-    padding: 1.25rem; }
+    padding: 1.25rem 1.25rem 1.75rem 1.25rem; }
 
 .form {
-  height: 6rem;
+  height: 6.5rem;
   width: 100%; }
 
 .input {
@@ -46,5 +46,11 @@ body, html {
     background-color: rgba(248, 131, 121, 0.5); }
   .button:active {
     transform: translateY(0.1rem); }
+
+.list {
+  font-size: 1rem; }
+  .list-item {
+    margin-top: 2.25rem;
+    align-items: center; }
 
 /*# sourceMappingURL=styles.css.map */
