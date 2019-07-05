@@ -5,24 +5,28 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let list = document.querySelector(".list");
 	listItemArr = [];
 	let input = document.querySelector(".input__text");
-	let storage = window.localStorage;
+
+	if(localStorage) {
+		keepData();
+	}
 
 	function addTask(event) {
 		event.preventDefault();
-		localStorage.setItem("item# " + itemNum, input.value);
-		itemNum++;
-		createListItem(input.value);
+		let listItem = createElement(input.value);
+		localStorage.setItem("item#" + itemNum, input.value);
 		input.value = "";
+		listItemArr.push(listItem);
+		itemNum++;
 	}
 
-	function createListItem(listItemValue) {
+	function createElement(listItemValue) {
 		let listItem = document.createElement("div");
 		for(let i = 0; i < listItemAttributes.length; i++) {
 			setAllAttributes(listItem, listItemAttributes[i], listItemAttributeValues[i]);
 		}
-		list.append(listItem);
 		listItem.innerText = listItemValue;
-		listItemArr.push(listItem);
+		list.append(listItem);
+		return listItem;
 	} 
 
 	function setAllAttributes(element, attribute, value) {
@@ -37,15 +41,16 @@ document.addEventListener("DOMContentLoaded", function(event){
 		}
 	}
 
-	function keepData(event) {
-		for(let k = 0; k >= Object.keys(storage).length; k++) {
-
+	function keepData() {
+		let storageKeys = localStorage.keys();
+		for(let item in localStorage) {
+			let savedValue = localStorage.getItem(item);
+			createElement(savedValue);
 		}
 	}
 
 	document.onsubmit = addTask;
 	document.onreset = clearList;
-	document.onload = keepData;
 });
 
 
