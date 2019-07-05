@@ -6,17 +6,16 @@ document.addEventListener("DOMContentLoaded", function(event){
 	listItemArr = [];
 	let input = document.querySelector(".input__text");
 
-	if(localStorage) {
+	if(localStorage.length !== 0) {
 		keepData();
 	}
 
 	function addTask(event) {
 		event.preventDefault();
-		let listItem = createElement(input.value);
-		localStorage.setItem("item#" + itemNum, input.value);
+		createElement(input.value);
+		localStorage.setItem("#" + itemNum, input.value);
+		localStorage.setItem("itemNum", itemNum);
 		input.value = "";
-		listItemArr.push(listItem);
-		itemNum++;
 	}
 
 	function createElement(listItemValue) {
@@ -26,7 +25,8 @@ document.addEventListener("DOMContentLoaded", function(event){
 		}
 		listItem.innerText = listItemValue;
 		list.append(listItem);
-		return listItem;
+		listItemArr.push(listItem);
+		itemNum++;
 	} 
 
 	function setAllAttributes(element, attribute, value) {
@@ -39,14 +39,19 @@ document.addEventListener("DOMContentLoaded", function(event){
 		for(let item of listItemArr) {
 			item.remove();
 		}
+		itemNum = 0;
 	}
 
 	function keepData() {
-		let storageKeys = localStorage.keys();
-		for(let item in localStorage) {
-			let savedValue = localStorage.getItem(item);
-			createElement(savedValue);
+		itemNum = Number.parseInt(localStorage.getItem("itemNum"));
+		let storageKeys = Object.keys(localStorage);
+		for(let k = storageKeys.length - 1; k >= 0; k--) {
+			if(storageKeys[k] === "itemNum") {
+				continue;
+			}
+			createElement(localStorage[storageKeys[k]]);
 		}
+
 	}
 
 	document.onsubmit = addTask;
