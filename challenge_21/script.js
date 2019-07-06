@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(event){
-	let listItemAttributes = ["class", "role"];
-	let listItemAttributeValues = ["list__item", "listitem"];
+	let listItemAttributes = ["class", "role", "checked"];
+	let listItemAttributeValues = ["list__item", "listitem", "false"];
 	let itemNum = 0;
 	let list = document.querySelector(".list");
 	let listItemArr = [];
@@ -13,11 +13,14 @@ document.addEventListener("DOMContentLoaded", function(event){
 
 	function addTask(event) {
 		event.preventDefault();
-		createElement(input.value);
-		localStorage.setItem("#" + itemNum, input.value);
+		let newElement = createElement(input.value);
+		itemNum++;
+		newElement.setAttribute("id", "#" + itemNum);
+		localStorage.setItem("#" + itemNum, JSON.stringify([input.value, false]));
 		localStorage.setItem("itemNum", itemNum);
 		storageKeys.push("#" + itemNum);
 		localStorage.setItem("storageKeys", JSON.stringify(storageKeys));
+		listItemArr.push(input.value);
 		input.value = "";
 	}
 
@@ -33,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 		listItem.append(dash);
 		listItemArr.push(listItem);
 		listItemArr.push(dash);
-		itemNum++;
+		return listItem;
 	} 
 
 	function setAllAttributes(element, attribute, value) {
@@ -54,22 +57,37 @@ document.addEventListener("DOMContentLoaded", function(event){
 		itemNum = Number.parseInt(localStorage.getItem("itemNum"));
 		storageKeys = JSON.parse(localStorage["storageKeys"]);
 		for(let k = 0; k < storageKeys.length; k++) {
-			createElement(localStorage[storageKeys[k]]);
+			let theKey = storageKeys[k];
+			let value = JSON.parse(localStorage[theKey])[0];
+			let boolean = JSON.parse(localStorage[theKey])[1];
+			let remadeElement = createElement(value);
+			remadeElement.setAttribute("id", theKey);
+			if(boolean){
+				remadeElement.setAttribute("checked", "true");
+				remadeElement.childNodes[1].classList.add("list__item-active");
+				remadeElement.childNodes[1].style.transition = "all 0s";
+				remadeElement.childNodes[1].style.width = remadeElement.clientWidth + "px";
+			}
 		}
 	}
 
 	function crossOff(event) {
+		event.stopPropagation();
 		if(event.target.classList.contains("list__item")) {
 			let targetChildren = Array.from(event.target.childNodes);
 			let itemWidth = event.target.clientWidth;
+			targetChildren[1].style.transition = "all .3s";
 			if(!targetChildren[1].classList.contains("list__item-active")){
-
+				event.target.setAttribute("checked", "true");
 				targetChildren[1].classList.add("list__item-active");
 				targetChildren[1].style.width = itemWidth + "px";
+				localStorage.setItem(event.target.getAttribute("id"), JSON.stringify([event.target.innerText, true]));
 			}
 			else {
+				event.target.setAttribute("checked", "false");
 				targetChildren[1].classList.remove("list__item-active");
 				targetChildren[1].style.width = "0";
+				localStorage.setItem(event.target.getAttribute("id"), JSON.stringify([event.target.innerText, false]));
 			}
 		}
 	}
