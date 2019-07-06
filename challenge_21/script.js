@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(event){
 	let listItemAttributes = ["class", "role"];
-	let listItemAttributeValues = ["list-item", "listitem"];
+	let listItemAttributeValues = ["list__item", "listitem"];
 	let itemNum = 0;
 	let list = document.querySelector(".list");
 	listItemArr = [];
@@ -20,12 +20,16 @@ document.addEventListener("DOMContentLoaded", function(event){
 
 	function createElement(listItemValue) {
 		let listItem = document.createElement("div");
+		let dash = document.createElement("div");
 		for(let i = 0; i < listItemAttributes.length; i++) {
 			setAllAttributes(listItem, listItemAttributes[i], listItemAttributeValues[i]);
 		}
+		dash.setAttribute("class", "list__item-dash");
 		listItem.innerText = listItemValue;
 		list.append(listItem);
+		listItem.append(dash);
 		listItemArr.push(listItem);
+		listItemArr.push(dash);
 		itemNum++;
 	} 
 
@@ -54,8 +58,26 @@ document.addEventListener("DOMContentLoaded", function(event){
 
 	}
 
+	function crossOff(event) {
+		if(event.target.classList.contains("list__item")) {
+			let targetChildren = Array.from(event.target.childNodes);
+			let itemWidth = event.target.clientWidth;
+			if(!targetChildren[1].classList.contains("list__item-active")){
+
+				targetChildren[1].classList.add("list__item-active");
+				targetChildren[1].style.width = itemWidth + "px";
+			}
+			else {
+				targetChildren[1].classList.remove("list__item-active");
+				targetChildren[1].style.width = "0";
+			}
+			
+		}
+	}
+
 	document.onsubmit = addTask;
 	document.onreset = clearList;
+	document.onclick = crossOff;
 });
 
 

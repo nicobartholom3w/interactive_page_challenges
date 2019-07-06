@@ -67,10 +67,26 @@ body, html {
 
 .list {
 	font-size: 1rem;
+	overflow: hidden;
 	
-	&-item {
+	&__item {
 		margin-top: 2.25rem;
-		align-items: center;
+		cursor: pointer;
+		position: relative;
+		float: left;
+		clear: both;
 
+		&-dash {
+			position: absolute;
+			width: 0;
+			height: 2px;
+			background-color: black;
+			top: 45%;
+			transition: all .3s;
+		}
+
+		&-active {
+			
+		}
 	}
 }

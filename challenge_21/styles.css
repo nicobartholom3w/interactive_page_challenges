@@ -48,9 +48,20 @@ body, html {
     transform: translateY(0.1rem); }
 
 .list {
-  font-size: 1rem; }
-  .list-item {
+  font-size: 1rem;
+  overflow: hidden; }
+  .list__item {
     margin-top: 2.25rem;
-    align-items: center; }
+    cursor: pointer;
+    position: relative;
+    float: left;
+    clear: both; }
+    .list__item-dash {
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: black;
+      top: 45%;
+      transition: all .3s; }
 
 /*# sourceMappingURL=styles.css.map */
