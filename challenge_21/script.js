@@ -3,8 +3,9 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let listItemAttributeValues = ["list__item", "listitem"];
 	let itemNum = 0;
 	let list = document.querySelector(".list");
-	listItemArr = [];
+	let listItemArr = [];
 	let input = document.querySelector(".input__text");
+	let storageKeys = [];
 
 	if(localStorage.length !== 0) {
 		keepData();
@@ -15,6 +16,8 @@ document.addEventListener("DOMContentLoaded", function(event){
 		createElement(input.value);
 		localStorage.setItem("#" + itemNum, input.value);
 		localStorage.setItem("itemNum", itemNum);
+		storageKeys.push("#" + itemNum);
+		localStorage.setItem("storageKeys", JSON.stringify(storageKeys));
 		input.value = "";
 	}
 
@@ -44,18 +47,15 @@ document.addEventListener("DOMContentLoaded", function(event){
 			item.remove();
 		}
 		itemNum = 0;
+		storageKeys = [];
 	}
 
 	function keepData() {
 		itemNum = Number.parseInt(localStorage.getItem("itemNum"));
-		let storageKeys = Object.keys(localStorage);
-		for(let k = storageKeys.length - 1; k >= 0; k--) {
-			if(storageKeys[k] === "itemNum") {
-				continue;
-			}
+		storageKeys = JSON.parse(localStorage["storageKeys"]);
+		for(let k = 0; k < storageKeys.length; k++) {
 			createElement(localStorage[storageKeys[k]]);
 		}
-
 	}
 
 	function crossOff(event) {
@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", function(event){
 				targetChildren[1].classList.remove("list__item-active");
 				targetChildren[1].style.width = "0";
 			}
-			
 		}
 	}
 
