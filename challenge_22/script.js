@@ -3,10 +3,9 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let dot = canvas.getContext("2d");
 	let x = 200;
 	let y = 200;
-	let velY = 0;
-	let velX = 0;
 	let speed = 5;
-	// let friction = .95;
+	let timeout;
+
 
 	initCanvas();
 
@@ -19,31 +18,24 @@ document.addEventListener("DOMContentLoaded", function(event){
 	}
 
 	function moveDot(event) {
-		requestAnimationFrame(moveDot);
+		
 
 		if(event.key === "ArrowLeft") {
-			// if (velX > -speed) {
-   //          	velX--;
-   //      	}
-        	speed++;
+			timeout = requestAnimationFrame(() => moveDot(event));
         	x -= speed;
 		}
 		else if(event.key === "ArrowRight") {
-			moveRight();
+			timeout = requestAnimationFrame(() => moveDot(event));
+			x += speed;
 		}
 		else if(event.key === "ArrowUp") {
-			moveUp();
+			timeout = requestAnimationFrame(() => moveDot(event));
+			y -= speed;
 		}
 		else if(event.key === "ArrowDown") {
-			moveDown();
+			timeout = requestAnimationFrame(() => moveDot(event));
+			y += speed;
 		}
-
-		// speed++;
-		// velY *= friction;
-		// y += velY;
-
-		// velX *= friction;
-		// x += velX;
 
 		if (x >= 395) {
 		    x = 395;
@@ -61,11 +53,13 @@ document.addEventListener("DOMContentLoaded", function(event){
 		dot.beginPath();
 		dot.arc(x, y, 5, 0, Math.PI * 2);
 		dot.fill();
+
 	}
 
 	
 	function buttonUp(event) {
-
+		// clearTimeout(timeout);
+		cancelAnimationFrame(timeout);
 	}
 
 	document.onkeyup = buttonUp;
