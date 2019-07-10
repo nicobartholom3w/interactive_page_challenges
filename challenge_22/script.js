@@ -3,37 +3,36 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let dot = canvas.getContext("2d");
 	let x = 200;
 	let y = 200;
-	let speed = 5;
+	let speed = 1;
 	let timeout;
-
+	let isMoving = false;
 
 	initCanvas();
 
 	function initCanvas() {
 		canvas.width = canvas.height = 400;
-		dot.beginPath();
-		postion = dot.arc(x, y, 5, 0, Math.PI * 2);
 		dot.fillStyle = "#f88379";
+		loadDot();
+	}
+
+	function loadDot() {
+		dot.clearRect(0, 0, 400, 400);
+		dot.beginPath();
+		dot.arc(x, y, 5, 0, Math.PI * 2);
 		dot.fill();
 	}
 
 	function moveDot(event) {
-		
-
 		if(event.key === "ArrowLeft") {
-			timeout = requestAnimationFrame(() => moveDot(event));
         	x -= speed;
 		}
 		else if(event.key === "ArrowRight") {
-			timeout = requestAnimationFrame(() => moveDot(event));
 			x += speed;
 		}
 		else if(event.key === "ArrowUp") {
-			timeout = requestAnimationFrame(() => moveDot(event));
 			y -= speed;
 		}
 		else if(event.key === "ArrowDown") {
-			timeout = requestAnimationFrame(() => moveDot(event));
 			y += speed;
 		}
 
@@ -49,19 +48,21 @@ document.addEventListener("DOMContentLoaded", function(event){
 		    y = 5;
 		}
 
-		dot.clearRect(0, 0, 400, 400);
-		dot.beginPath();
-		dot.arc(x, y, 5, 0, Math.PI * 2);
-		dot.fill();
+		loadDot();
 
+		if(isMoving) {
+			timeout = window.requestAnimationFrame(() => moveDot(event));
+		}
 	}
 
-	
 	function buttonUp(event) {
-		// clearTimeout(timeout);
-		cancelAnimationFrame(timeout);
+		isMoving = false;
+		window.cancelAnimationFrame(timeout);
 	}
 
 	document.onkeyup = buttonUp;
-	document.onkeydown = moveDot;
+	document.onkeydown = (event) => {timeout = window.requestAnimationFrame(() => {
+		isMoving = true;
+		moveDot(event);
+	});};
 });
