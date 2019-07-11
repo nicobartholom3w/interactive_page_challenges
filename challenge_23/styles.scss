@@ -1,0 +1,65 @@
+body, html {
+	padding: 0;
+	margin: 0;
+ 	min-width: 100%;
+ 	min-height: 100%;
+ 	font-family: sans-serif;
+ 	background-color: #dcd0ff;
+} 
+
+.container {
+	width: 37.5rem;
+	height: 4.5rem;
+	background-color: white;
+	border-radius: .25rem;
+	margin: 6.25rem auto 0;
+	display: flex;
+
+
+	&-content {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+	}
+}
+
+.button {
+	height: 2rem;
+	width: 2rem;
+	border-radius: 50%;
+	background-color: rgba(194, 248, 252, .25);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	cursor: pointer;
+	transition: all .2s;
+
+	&-dot {
+		height: .6rem;
+		width: .6rem;
+		border-radius: 50%;
+		background-color: rgba(194, 252, 198, .7);
+		position: absolute;
+	}
+
+	&:hover > .button-dot {
+		background-color: rgba(248, 130, 121, .8);
+	}
+}
+
+.week {
+	width: 26rem;
+	display: flex;
+
+	&__day {
+		min-width: 4rem;
+		font-size: .89rem;
+
+		&-active {
+			font-weight: bold;
+		}
+	}
+}
