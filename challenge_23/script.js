@@ -63,5 +63,4 @@ document.addEventListener("DOMContentLoaded", function(event){
 
 	buttonLeft.onclick = previousWeek;
 	buttonRight.onclick = nextWeek;
-
 });
