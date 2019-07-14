@@ -1,7 +1,13 @@
 <!doctype html>
 <html>
 <head>
-    <title>Toast</title>
+    <title>My Toast</title>
+    <meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  	<link rel="stylesheet" href="./styles.css">
+  	<script type="text/javascript" src="script.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 </head>
 <body>
     <!--
@@ -11,5 +17,14 @@
         If toast is hovered by mouse - timer should reset and start over again when cursor leaves toast.
         While one toast is active showing other toasts should be blocked.
     -->
+	<div role="alert" class="toast toast__message">Just a usual message</div>
+	<div role="alert" class="toast toast__alert">Here is your error</div>
+
+    <div class="container">
+    	<div class="container__content">
+    		<div role="button" class="button button__message">Toast message</div>
+    		<div role="button" class="button button__alert">Toast alert</div>
+    	</div>
+    </div>
 </body>
 </html>
