@@ -17,13 +17,10 @@
         If toast is hovered by mouse - timer should reset and start over again when cursor leaves toast.
         While one toast is active showing other toasts should be blocked.
     -->
-	<div role="alert" class="toast toast__message">Just a usual message</div>
-	<div role="alert" class="toast toast__alert">Here is your error</div>
-
     <div class="container">
     	<div class="container__content">
-    		<div role="button" class="button button__message">Toast message</div>
-    		<div role="button" class="button button__alert">Toast alert</div>
+    		<div role="button" class="button button__message" data-text="Just a usual message">Toast message</div>
+    		<div role="button" class="button button__alert" data-text="Here is your error" data-type="error">Toast alert</div>
     	</div>
     </div>
 </body>
