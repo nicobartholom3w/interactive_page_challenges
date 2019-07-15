@@ -1,0 +1,30 @@
+body, html {
+	padding: 0;
+	margin: 0;
+ 	min-width: 100%;
+ 	min-height: 100%;
+ 	font-family: sans-serif;
+ 	background-color: rgb(33, 140, 116);
+} 
+
+.button {
+	width: 31.25rem;
+	height: 2.5rem;
+	background-color: rgb(241, 241, 241);
+	margin: 6.25rem auto 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: .25rem;
+	cursor: pointer;
+	font-size: .9rem;
+	position: relative;
+
+	&:hover {
+		background-color: rgb(232, 232, 232);
+	}
+
+	&:active {
+		top: 1px;
+	}
+}

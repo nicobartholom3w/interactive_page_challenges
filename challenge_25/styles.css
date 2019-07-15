@@ -1,0 +1,26 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-family: sans-serif;
+  background-color: #218c74; }
+
+.button {
+  width: 31.25rem;
+  height: 2.5rem;
+  background-color: #f1f1f1;
+  margin: 6.25rem auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: .25rem;
+  cursor: pointer;
+  font-size: .9rem;
+  position: relative; }
+  .button:hover {
+    background-color: #e8e8e8; }
+  .button:active {
+    top: 1px; }
+
+/*# sourceMappingURL=styles.css.map */
