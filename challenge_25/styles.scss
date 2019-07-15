@@ -11,7 +11,7 @@ body, html {
 	width: 31.25rem;
 	height: 2.5rem;
 	background-color: rgb(241, 241, 241);
-	margin: 6.25rem auto 0;
+	margin: 0rem auto 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -26,5 +26,23 @@ body, html {
 
 	&:active {
 		top: 1px;
+	}
+}
+
+.card {
+	width: 15rem;
+	height: 3.5rem;
+	background-color: white;
+	border-radius: .25rem;
+	box-sizing: border-box;
+	padding: 1.25rem;
+	margin-left: .5rem;
+	margin-bottom: .5rem;
+
+	&-section {
+		width: 31.25rem;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 6.25rem auto 0;
 	}
 }
