@@ -17,7 +17,8 @@ body, html {
   border-radius: .25rem;
   cursor: pointer;
   font-size: .9rem;
-  position: relative; }
+  position: relative;
+  transition: opacity .2s ease-in-out; }
   .button:hover {
     background-color: #e8e8e8; }
   .button:active {
@@ -37,5 +38,9 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     margin: 6.25rem auto 0; }
+
+.loading {
+  cursor: wait;
+  opacity: 0.85; }
 
 /*# sourceMappingURL=styles.css.map */
