@@ -18,6 +18,7 @@ body {
     width: 300px;
     height: 100px;
     background: #26de81;
+    position: absolute;
 }
 
 .onboarding__item--left {
@@ -64,4 +65,19 @@ body {
 
 .button:active {
     margin-top: 1px;
+}
+
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    transition: background-color .3s;
+}
+
+.overlay__active {
+    background-color: rgba(0, 0, 0, .7);
+    z-index: 1;
 }
