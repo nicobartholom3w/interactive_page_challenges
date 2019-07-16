@@ -1,13 +1,16 @@
 document.addEventListener("DOMContentLoaded", function(event){
 	let httpRequest;
 	let requestObj;
-	let progress = 0;
 	let cardSection = document.querySelector(".card-section");
 	let button = document.querySelector(".button");
+	let link = "https://swapi.co/api/people/";
+	let height = 0;
+	let next;
 
 	button.addEventListener("click", makeRequest);
 
 	function makeRequest(event) {
+		height += 350;
 		button.classList.add("loading");
 		httpRequest = new XMLHttpRequest();
 
@@ -15,9 +18,12 @@ document.addEventListener("DOMContentLoaded", function(event){
 			alert("Cannot create instance!");
 			return false;
 		}
+		if(next) {
+			link = next;
+		}
 
 		httpRequest.onreadystatechange = addContents;
-		httpRequest.open("GET", "https://swapi.co/api/people/");
+		httpRequest.open("GET", link);
 		httpRequest.send();
 	}
 
@@ -25,35 +31,40 @@ document.addEventListener("DOMContentLoaded", function(event){
 		if(httpRequest.readyState === XMLHttpRequest.DONE) {
 			if(httpRequest.status === 200) {
 				requestObj = JSON.parse(httpRequest.responseText);
-					populatePage(requestObj["results"]);
+				next = requestObj["next"];
+				if(!link) {
+					return;
+				}
+				populatePage(requestObj["results"]);
+				setTimeout(() => {
+					button.classList.remove("loading");
+					cardSection.style.height = height + "px";
+				}, 400);
 			}
 			else {
 				alert("There was a problem with the request.");
 			}
 		}
-		setTimeout(() => {button.classList.remove("loading");}, 400);
+
+		
 	}
 
 	function populatePage(objArray) {
 		for(let i = 0; i < 10; i++) {
-			if(!objArray[progress]) {
+			if(!objArray[i]) {
 				return;
 			}
-			let character = objArray[progress];
+			let character = objArray[i];
 			let charName = character["name"];
 			let node = document.createElement("div");
 			node.classList.add("card");
 			node.innerText = charName;
 			cardSection.appendChild(node);
-			progress++;
 		}
 	}
 
+	function loadComplete() {
 
-});
-
-function loading(event) {
-		
 	}
 
-	document.onload = loading;
+});

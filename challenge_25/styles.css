@@ -35,9 +35,12 @@ body, html {
   margin-bottom: .5rem; }
   .card-section {
     width: 31.25rem;
+    height: 0rem;
     display: flex;
     flex-wrap: wrap;
-    margin: 6.25rem auto 0; }
+    margin: 6.25rem auto 0;
+    transition: all .3s;
+    overflow: hidden; }
 
 .loading {
   cursor: wait;
