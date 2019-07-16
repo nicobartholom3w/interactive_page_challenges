@@ -1,6 +1,7 @@
 body, html {
 	padding: 0;
-	margin: 0;
+	margin-right: 0;
+	margin-left: 0;
  	min-width: 100%;
  	min-height: 100%;
  	font-family: sans-serif;
@@ -52,7 +53,17 @@ body, html {
 	}
 }
 
+@keyframes flashing {
+	0% { opacity: .5; }
+	50% { opacity: .75; }
+	100% { opacity: .5; }
+}
+
 .loading {
 	cursor: wait;
-	opacity: 0.85;
+	opacity: .5;
+}
+
+.flashing {
+	animation: flashing 1s infinite;
 }

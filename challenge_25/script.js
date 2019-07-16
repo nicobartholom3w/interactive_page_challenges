@@ -6,12 +6,20 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let link = "https://swapi.co/api/people/";
 	let height = 0;
 	let next;
+	let flashing;
 
 	button.addEventListener("click", makeRequest);
+
+	// function sendReplacement(data) {
+	// 	if(this.onreadystatechange) {
+	// 		this._onreadystatechange = this.onreadystatechange;
+	// 	}
+	// }
 
 	function makeRequest(event) {
 		height += 350;
 		button.classList.add("loading");
+		flashing = setTimeout(() => {button.classList.add("flashing");}, 500);
 		httpRequest = new XMLHttpRequest();
 
 		if(!httpRequest) {
@@ -36,10 +44,12 @@ document.addEventListener("DOMContentLoaded", function(event){
 					return;
 				}
 				populatePage(requestObj["results"]);
-				setTimeout(() => {
+				// setTimeout(() => {
 					button.classList.remove("loading");
+					button.classList.remove("flashing");
+					clearTimeout(flashing);
 					cardSection.style.height = height + "px";
-				}, 400);
+				// }, 400);
 			}
 			else {
 				alert("There was a problem with the request.");
