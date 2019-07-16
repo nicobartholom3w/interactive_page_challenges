@@ -10,12 +10,6 @@ document.addEventListener("DOMContentLoaded", function(event){
 
 	button.addEventListener("click", makeRequest);
 
-	// function sendReplacement(data) {
-	// 	if(this.onreadystatechange) {
-	// 		this._onreadystatechange = this.onreadystatechange;
-	// 	}
-	// }
-
 	function makeRequest(event) {
 		height += 350;
 		button.classList.add("loading");
@@ -44,19 +38,16 @@ document.addEventListener("DOMContentLoaded", function(event){
 					return;
 				}
 				populatePage(requestObj["results"]);
-				// setTimeout(() => {
-					button.classList.remove("loading");
-					button.classList.remove("flashing");
-					clearTimeout(flashing);
-					cardSection.style.height = height + "px";
-				// }, 400);
+				
+				button.classList.remove("loading");
+				button.classList.remove("flashing");
+				clearTimeout(flashing);
+				cardSection.style.height = height + "px";
 			}
 			else {
 				alert("There was a problem with the request.");
 			}
-		}
-
-		
+		}	
 	}
 
 	function populatePage(objArray) {
@@ -72,9 +63,4 @@ document.addEventListener("DOMContentLoaded", function(event){
 			cardSection.appendChild(node);
 		}
 	}
-
-	function loadComplete() {
-
-	}
-
 });
