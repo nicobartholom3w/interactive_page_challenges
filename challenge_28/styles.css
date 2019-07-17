@@ -1,0 +1,39 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-family: sans-serif; }
+
+.card {
+  width: 26.5rem;
+  height: 4.5rem;
+  background-color: #ffca07;
+  border-radius: .15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.border {
+  width: 27.5rem;
+  height: 5.5rem;
+  background-color: #3264ac;
+  border-radius: .35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6.25rem auto 0; }
+
+.input {
+  border: none;
+  outline: none;
+  width: 25rem;
+  height: 2.5rem;
+  font-size: .85rem;
+  background-color: #ffca07;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box; }
+  .input:focus {
+    border-color: black; }
+
+/*# sourceMappingURL=styles.css.map */
