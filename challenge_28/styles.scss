@@ -20,6 +20,9 @@ body, html {
 	top: -1.5rem;
 	left: 25.5rem;
 	transform: rotate(30deg);
+	z-index: 100;
+	padding: 0;
+	line-height: 4rem;
 
 	&-dot {
 		height: 1.25rem;
@@ -99,16 +102,23 @@ body, html {
 	padding: .5rem;
 	box-sizing: border-box;
 	font-size: .9rem;
+	display: none;
+
+	&-active {
+		display: block;
+	}
 
 	&-li {
 		height: 2rem;
 		padding-left: .5rem;
-		display: table-cell;
-		width: 25rem;
+		width: 100%;
 		vertical-align: middle;
 		line-height: normal;
 		border-radius: .25rem;
 		cursor: pointer;
+		display: flex;
+		align-items: center;
+		box-sizing: border-box;
 
 		&:hover {
 			background-color: rgba(50, 100, 172, .1);
