@@ -17,8 +17,8 @@ body, html {
 	justify-content: center;
 	align-items: flex-start;
 	box-sizing: border-box;
-	top: 4.5rem;
-	left: 27rem;
+	top: -1.5rem;
+	left: 25.5rem;
 	transform: rotate(30deg);
 
 	&-dot {
@@ -45,6 +45,11 @@ body, html {
 		box-sizing: border-box;
 		top: -3px;
 	}
+	&-container {
+		position: relative;
+		width: 26.5rem;
+		margin: 6.25rem auto 0;
+	}
 }
 .card {
 	width: 26.5rem;
@@ -65,6 +70,7 @@ body, html {
 	align-items: center;
 	justify-content: center;
 	margin: 6.25rem auto 0;
+	position: relative;
 }
 
 .input {
@@ -79,5 +85,33 @@ body, html {
 
 	&:focus {
 		border-color: rgba(0, 0, 0, 1);
+	}
+}
+
+.dropdown {
+	width: 25rem;
+	min-height: 2rem;
+	background-color: white;
+	border-radius: .25rem;
+	position: absolute;
+	top:4.5rem;
+	box-shadow: 0 1px 3px 1px rgba(0, 0, 0, .25);
+	padding: .5rem;
+	box-sizing: border-box;
+	font-size: .9rem;
+
+	&-li {
+		height: 2rem;
+		padding-left: .5rem;
+		display: table-cell;
+		width: 25rem;
+		vertical-align: middle;
+		line-height: normal;
+		border-radius: .25rem;
+		cursor: pointer;
+
+		&:hover {
+			background-color: rgba(50, 100, 172, .1);
+		}
 	}
 }

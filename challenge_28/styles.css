@@ -16,8 +16,8 @@ body, html {
   justify-content: center;
   align-items: flex-start;
   box-sizing: border-box;
-  top: 4.5rem;
-  left: 27rem;
+  top: -1.5rem;
+  left: 25.5rem;
   transform: rotate(30deg); }
   .pokeball-dot {
     height: 1.25rem;
@@ -40,6 +40,10 @@ body, html {
     border: 3px solid;
     box-sizing: border-box;
     top: -3px; }
+  .pokeball-container {
+    position: relative;
+    width: 26.5rem;
+    margin: 6.25rem auto 0; }
 
 .card {
   width: 26.5rem;
@@ -58,7 +62,8 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 6.25rem auto 0; }
+  margin: 6.25rem auto 0;
+  position: relative; }
 
 .input {
   border: none;
@@ -71,5 +76,28 @@ body, html {
   box-sizing: border-box; }
   .input:focus {
     border-color: black; }
+
+.dropdown {
+  width: 25rem;
+  min-height: 2rem;
+  background-color: white;
+  border-radius: .25rem;
+  position: absolute;
+  top: 4.5rem;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.25);
+  padding: .5rem;
+  box-sizing: border-box;
+  font-size: .9rem; }
+  .dropdown-li {
+    height: 2rem;
+    padding-left: .5rem;
+    display: table-cell;
+    width: 25rem;
+    vertical-align: middle;
+    line-height: normal;
+    border-radius: .25rem;
+    cursor: pointer; }
+    .dropdown-li:hover {
+      background-color: rgba(50, 100, 172, 0.1); }
 
 /*# sourceMappingURL=styles.css.map */
