@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 	input.addEventListener("input", (event) => {
 		keyCount = input.value.length;
 		if(keyCount === 0) {
+			isDelete = false;
 			dropDown.classList.remove("dropdown-active");
 			removeAllPokemon(pokemonArray);
 			pokemonArray = [];
@@ -36,34 +37,8 @@ document.addEventListener("DOMContentLoaded", function(event){
 			}
 			previousPokemon = pokemonArray;
 			addPokemon(pokemonArray);
-
-			// if(pokemonArray.length > 0){
-			// 	tempList = pokemonArray;
-			// 	removeAllPokemon(tempList);
-			// }
-			// if(event.key === "Backspace") {
-			// 	keyCount--;
-			// 	pokemonArray = sortPokemon(event, pokemonObjectsArray);
-			// }
-			// else {
-			// 	pokemonArray = findPokemon(event, tempList);
-			// }
-
-			// addPokemon(pokemonArray);
-			// if(pokemonArray.length === 0) {
-			// 	dropDown.classList.remove("dropdown-active");
-			// }
 		});
 	});
-
-	// input.addEventListener("keydown", (event) => {
-	// 	if(event.key === "Backspace") {
-	// 		removeAllPokemon(previousPokemon);
-	// 		for(let count = 0; count <= keyCount - 1; count++) {
-	// 			pokemonArray = findPokemon(event, pokemonArray, count);
-	// 		}
-	// 	}
-	// });
 
 	input.addEventListener("keydown", (event) => {
 		keyCount = input.value.length;
@@ -85,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 			removeAllPokemon(pokemonArray);
 			dropDown.classList.remove("dropdown-active");
 			pokemonArray = [];
+			previousPokemon = pokemonArray;
 		}
 	});
 
@@ -147,6 +123,4 @@ document.addEventListener("DOMContentLoaded", function(event){
 		}
 		dropDown.classList.remove("dropdown-active");
 	}
-
-
 });
