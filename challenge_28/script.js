@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let pokemonArray = [];
 	let keyCount = 0;
 	
-	input.addEventListener("keydown", (event) => {	
+	input.addEventListener("keydown", (event) => {
+		// NEED TO CHECK FULL INPUT EVERY TIME
+		keyCount = input.value.length;
 		dropDown.classList.add("dropdown-active");
 		fetch("https://pokeapi.co/api/v2/pokemon/?limit=964")
 		.then((response) => response.json())
@@ -22,7 +24,11 @@ document.addEventListener("DOMContentLoaded", function(event){
 			else {
 				pokemonArray = findPokemon(event, tempList);
 			}
+
 			addPokemon(pokemonArray);
+			if(pokemonArray.length === 0) {
+				dropDown.classList.remove("dropdown-active");
+			}
 		});
 	});
 
@@ -32,6 +38,20 @@ document.addEventListener("DOMContentLoaded", function(event){
 		if(keyCount === 0) {
 			dropDown.classList.remove("dropdown-active");
 			removeAllPokemon(pokemonArray);
+			pokemonArray = [];
+		}
+	});
+
+	document.addEventListener("mouseover", (event) => {
+		if(event.target.classList.contains("dropdown-li")){
+			input.value = event.target.innerText;
+		}
+	});
+
+	document.addEventListener("click", (event) => {
+		if(event.target.classList.contains("dropdown-li")){
+			removeAllPokemon(pokemonArray);
+			dropDown.classList.remove("dropdown-active");
 			pokemonArray = [];
 		}
 	});
@@ -68,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function(event){
 
 	function sortPokemon(event, array) {
 		let newArray = [];
-		
 		for(let item of array) {
 			let match = true;
 			let pokemon = item.name;
