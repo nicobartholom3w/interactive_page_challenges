@@ -5,40 +5,11 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let previousPokemon;
 	let pokemonArray = [];
 	let keyCount = 0;
-	
-	input.addEventListener("input", (event) => {
-		keyCount = input.value.length;
-		if(keyCount === 0) {
-			isDelete = false;
-			dropDown.classList.remove("dropdown-active");
-			removeAllPokemon(pokemonArray);
-			pokemonArray = [];
-			return;
-		}
-		fetch("https://pokeapi.co/api/v2/pokemon/?limit=964")
-		.then((response) => response.json())
-		.then((data) => {
-			let pokemonObjectsArray = data.results;
-			pokemonArray = pokemonObjectsArray;
-			if(isDelete) {
-				removeAllPokemon(previousPokemon);
-				for(let count = 0; count <= keyCount - 1; count++) {
-					pokemonArray = findPokemon(event, pokemonArray, count);
-				}
-				isDelete = false;
-			}
-			else {
-				for(let count = 0; count <= keyCount - 1; count++) {
-					pokemonArray = findPokemon(event, pokemonArray, count);
-					if(keyCount - 1 > 0 && keyCount - 1 === count + 1) {
-						removeAllPokemon(pokemonArray);
-					}
-				}
-			}
-			previousPokemon = pokemonArray;
-			addPokemon(pokemonArray);
-		});
-	});
+	let efficientPokemonSearch = debounce(() => {
+		pokemonSearch(event);
+	}, 200);
+
+	input.addEventListener("input", efficientPokemonSearch);
 
 	input.addEventListener("keydown", (event) => {
 		keyCount = input.value.length;
@@ -63,6 +34,41 @@ document.addEventListener("DOMContentLoaded", function(event){
 			previousPokemon = pokemonArray;
 		}
 	});
+
+	function pokemonSearch(event) {
+		keyCount = input.value.length;
+		if(keyCount === 0) {
+			isDelete = false;
+			dropDown.classList.remove("dropdown-active");
+			removeAllPokemon(pokemonArray);
+			pokemonArray = [];
+			previousPokemon = [];
+			return;
+		}
+		fetch("https://pokeapi.co/api/v2/pokemon/?limit=964")
+		.then((response) => response.json())
+		.then((data) => {
+			let pokemonObjectsArray = data.results;
+			pokemonArray = pokemonObjectsArray;
+			if(isDelete) {
+				removeAllPokemon(previousPokemon);
+				for(let count = 0; count <= keyCount - 1; count++) {
+					pokemonArray = findPokemon(event, pokemonArray, count);
+				}
+				isDelete = false;
+			}
+			else {
+				for(let count = 0; count <= keyCount - 1; count++) {
+					pokemonArray = findPokemon(event, pokemonArray, count);
+				}
+				if(previousPokemon) {
+					removeAllPokemon(previousPokemon);
+				}
+			}
+			previousPokemon = pokemonArray;
+			addPokemon(pokemonArray);
+		});
+	}
 
 	function findPokemon(event, array, count) {
 		let inputLetter = input.value[count]
@@ -123,4 +129,20 @@ document.addEventListener("DOMContentLoaded", function(event){
 		}
 		dropDown.classList.remove("dropdown-active");
 	}
+
+	function debounce(func, wait, immediate) {
+		let timeout;
+		return () => {
+			let context = this;
+			let args = arguments;
+			let later = () => {
+				timeout = null;
+				if(!immediate) func.apply(context, args);
+			};
+			let callNow = immediate && !timeout;
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+			if(callNow) func.apply(context, args);
+		};
+	};
 });
