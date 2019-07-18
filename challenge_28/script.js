@@ -1,44 +1,76 @@
 document.addEventListener("DOMContentLoaded", function(event){
 	let input = document.querySelector(".input");
 	let dropDown = document.querySelector(".dropdown");
+	let isDelete = false;
+	let previousPokemon;
 	let pokemonArray = [];
 	let keyCount = 0;
 	
-	input.addEventListener("keydown", (event) => {
-		// NEED TO CHECK FULL INPUT EVERY TIME
-		keyCount = input.value.length;
-		dropDown.classList.add("dropdown-active");
-		fetch("https://pokeapi.co/api/v2/pokemon/?limit=964")
-		.then((response) => response.json())
-		.then((data) => {
-			let pokemonObjectsArray = data.results;
-			let tempList = pokemonObjectsArray;
-			if(pokemonArray.length > 0){
-				tempList = pokemonArray;
-				removeAllPokemon(tempList);
-			}
-			if(event.key === "Backspace") {
-				keyCount--;
-				pokemonArray = sortPokemon(event, pokemonObjectsArray);
-			}
-			else {
-				pokemonArray = findPokemon(event, tempList);
-			}
-
-			addPokemon(pokemonArray);
-			if(pokemonArray.length === 0) {
-				dropDown.classList.remove("dropdown-active");
-			}
-		});
-	});
-
-
-	input.addEventListener("keyup", (event) => {
+	input.addEventListener("input", (event) => {
 		keyCount = input.value.length;
 		if(keyCount === 0) {
 			dropDown.classList.remove("dropdown-active");
 			removeAllPokemon(pokemonArray);
 			pokemonArray = [];
+			return;
+		}
+		fetch("https://pokeapi.co/api/v2/pokemon/?limit=964")
+		.then((response) => response.json())
+		.then((data) => {
+			let pokemonObjectsArray = data.results;
+			pokemonArray = pokemonObjectsArray;
+			if(isDelete) {
+				removeAllPokemon(previousPokemon);
+				for(let count = 0; count <= keyCount - 1; count++) {
+					pokemonArray = findPokemon(event, pokemonArray, count);
+				}
+				isDelete = false;
+			}
+			else {
+				for(let count = 0; count <= keyCount - 1; count++) {
+					pokemonArray = findPokemon(event, pokemonArray, count);
+					if(keyCount - 1 > 0 && keyCount - 1 === count + 1) {
+						removeAllPokemon(pokemonArray);
+					}
+				}
+			}
+			previousPokemon = pokemonArray;
+			addPokemon(pokemonArray);
+
+			// if(pokemonArray.length > 0){
+			// 	tempList = pokemonArray;
+			// 	removeAllPokemon(tempList);
+			// }
+			// if(event.key === "Backspace") {
+			// 	keyCount--;
+			// 	pokemonArray = sortPokemon(event, pokemonObjectsArray);
+			// }
+			// else {
+			// 	pokemonArray = findPokemon(event, tempList);
+			// }
+
+			// addPokemon(pokemonArray);
+			// if(pokemonArray.length === 0) {
+			// 	dropDown.classList.remove("dropdown-active");
+			// }
+		});
+	});
+
+	// input.addEventListener("keydown", (event) => {
+	// 	if(event.key === "Backspace") {
+	// 		removeAllPokemon(previousPokemon);
+	// 		for(let count = 0; count <= keyCount - 1; count++) {
+	// 			pokemonArray = findPokemon(event, pokemonArray, count);
+	// 		}
+	// 	}
+	// });
+
+	input.addEventListener("keydown", (event) => {
+		keyCount = input.value.length;
+		if(keyCount > 0) {
+			if(event.key === "Backspace") {
+				isDelete = true;
+			}
 		}
 	});
 
@@ -56,21 +88,23 @@ document.addEventListener("DOMContentLoaded", function(event){
 		}
 	});
 
-	function findPokemon(event, array) {
+	function findPokemon(event, array, count) {
+		let inputLetter = input.value[count]
 		let newArray = [];
 		let nthLetter;
 		for(let i = 0; i < array.length; i++){
-			if(keyCount === 0){
-				nthLetter = array[i]["name"][keyCount];
-				if(event.key.toLowerCase() === nthLetter) {
+			if(count === 0){
+				nthLetter = array[i]["name"][count];
+				if(inputLetter.toLowerCase() === nthLetter) {
 					newArray.push(array[i]["name"]);
 				}
 			}
 			else {
-				nthLetter = array[i][keyCount];	
-				if(event.key.toLowerCase() === nthLetter) {
+				nthLetter = array[i][count];	
+				if(inputLetter.toLowerCase() === nthLetter) {
 					newArray.push(array[i]);
 				}
+
 			}	
 		}
 		return newArray;
@@ -84,6 +118,9 @@ document.addEventListener("DOMContentLoaded", function(event){
 			listItem.id = array[k];
 			dropDown.appendChild(listItem);
 		}
+		if(array.length > 0) {
+			dropDown.classList.add("dropdown-active");
+		}
 	}
 
 	function sortPokemon(event, array) {
@@ -91,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 		for(let item of array) {
 			let match = true;
 			let pokemon = item.name;
-			for(let b = 0; b < keyCount; b++) {
+			for(let b = 0; b < keyCount - 1; b++) {
 				if(pokemon[b] !== input.value[b]) {
 					match = false;
 					break;
@@ -108,6 +145,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 		for(let p = 0; p < array.length; p++) {
 			document.getElementById(array[p]).remove();
 		}
+		dropDown.classList.remove("dropdown-active");
 	}
 
 
