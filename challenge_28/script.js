@@ -15,7 +15,13 @@ document.addEventListener("DOMContentLoaded", function(event){
 				tempList = pokemonArray;
 				removeAllPokemon(tempList);
 			}
-			pokemonArray = findPokemon(event, tempList);
+			if(event.key === "Backspace") {
+				keyCount--;
+				pokemonArray = sortPokemon(event, pokemonObjectsArray);
+			}
+			else {
+				pokemonArray = findPokemon(event, tempList);
+			}
 			addPokemon(pokemonArray);
 		});
 	});
@@ -58,6 +64,25 @@ document.addEventListener("DOMContentLoaded", function(event){
 			listItem.id = array[k];
 			dropDown.appendChild(listItem);
 		}
+	}
+
+	function sortPokemon(event, array) {
+		let newArray = [];
+		
+		for(let item of array) {
+			let match = true;
+			let pokemon = item.name;
+			for(let b = 0; b < keyCount; b++) {
+				if(pokemon[b] !== input.value[b]) {
+					match = false;
+					break;
+				}
+			}
+			if(match) {
+				newArray.push(pokemon);
+			}
+		}
+		return newArray;
 	}
 
 	function removeAllPokemon(array){
