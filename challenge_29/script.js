@@ -19,16 +19,17 @@ document.addEventListener("DOMContentLoaded", function(event){
 	}
 
 	function applyHighlights(text) {
-		text = text.replace(/\n$/gi, '\n\n');
+		let alignmentRegex = /\n$/g;
+		if(text.match(alignmentRegex)) {
+			console.log(text);
+		}
+		text = text.replace(alignmentRegex, '\n\n');
+
 		let isHashRegex = /#\S+/gi;
-		// if(isHashRegex.exec(text)) {
-		// 	console.log("match");
-		// }
 		let matches = text.match(isHashRegex);
-		console.log(matches);
 		if(matches) {
 			for(let match of matches) {
-				console.log(match);
+				// for all
 				text = text.replace(match, "<mark>" + match + "</mark>");
 			}
 		}

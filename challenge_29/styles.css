@@ -9,58 +9,55 @@ body, html {
 .card {
   width: 404px;
   height: 152px;
+  margin: 100px auto 0;
   background-color: white;
-  margin: 6.26rem auto 0;
-  border-radius: .25rem;
-  overflow: hidden;
-  border: 1px solid lightgrey; }
+  border-radius: 4px; }
   .card__content {
     height: 100%;
     width: 100%;
-    margin: 8px 0px 0px 8px;
     position: relative; }
 
 #textarea {
-  border: none;
-  width: 392px;
-  height: 140px;
-  border-radius: 0;
+  border: 1px solid lightgrey;
+  width: 404px;
+  height: 152px;
+  border-radius: 4px;
   margin: 0;
   outline: none;
   font-size: 14px;
   background-color: transparent;
-  z-index: 2;
   position: absolute;
-  line-height: 20px;
-  color: rgba(50, 50, 50, 0.5); }
+  resize: vertical;
+  padding-left: 10px;
+  padding-top: 10px;
+  box-sizing: border-box;
+  z-index: 2;
+  line-height: 16px; }
 
 .backdrop {
-  width: 392px;
-  height: 140px;
+  width: 404px;
+  height: 100%;
+  box-sizing: border-box;
   overflow: auto;
-  font-size: 14px;
-  line-height: 20px;
   position: absolute;
   margin: 0;
-  left: 0;
-  top: 0; }
+  z-index: 1; }
   .backdrop__highlights {
-    font-size: 14px;
-    line-height: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    font-size: 14.8px;
+    line-height: 16px;
     white-space: pre-wrap;
     word-wrap: break-word;
     color: red;
     margin: 0;
-    position: absolute;
-    left: 2px;
-    top: 1px; }
+    position: absolute; }
 
 mark {
   color: red;
-  font-size: 14px;
   border-radius: 3px;
   background-color: #7ec0ff;
-  line-height: 20px;
   margin: 0; }
 
 /*# sourceMappingURL=styles.css.map */
