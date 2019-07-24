@@ -26,4 +26,8 @@ document.addEventListener("DOMContentLoaded", function(event){
 
 	textArea.oninput = handleInput;
 	textArea.onscroll = handleScroll;
+
+	textArea.addEventListener("overflow", (event) =>{
+		textArea.style.paddingRight = "0px";
+	});
 });
