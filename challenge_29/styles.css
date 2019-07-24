@@ -21,7 +21,7 @@ body, html {
   max-width: 100%;
   min-width: 100%;
   min-height: 150px;
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
   outline: none;
   border: 0;
   border-radius: 4px;
@@ -33,16 +33,14 @@ body, html {
   line-height: 16px;
   letter-spacing: 1px;
   font-family: 'Roboto', sans-serif;
-  display: block; }
+  display: block;
+  margin: 0; }
 
 .backdrop {
-  padding: 10px;
-  width: 100%;
-  height: 100%;
+  padding: 10px 10px 0px 10px;
   box-sizing: border-box;
   overflow: auto;
   position: absolute;
-  margin: 0;
   z-index: 1;
   left: 0;
   top: 0;
@@ -58,7 +56,8 @@ body, html {
     position: absolute;
     letter-spacing: 1px;
     font-family: 'Roboto', sans-serif;
-    color: transparent; }
+    color: transparent;
+    color: red; }
 
 mark {
   color: transparent;
