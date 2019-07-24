@@ -8,6 +8,7 @@ body, html {
 
 .card {
   width: 404px;
+  min-height: 152px;
   height: 152px;
   margin: 100px auto 0;
   background-color: white;
@@ -20,19 +21,25 @@ body, html {
 #textarea {
   border: 1px solid lightgrey;
   width: 404px;
+  min-height: 152px;
   height: 152px;
   border-radius: 4px;
   margin: 0;
   outline: none;
   font-size: 14px;
+  line-height: 16px;
   background-color: transparent;
   position: absolute;
   resize: vertical;
   padding-left: 10px;
   padding-top: 10px;
   box-sizing: border-box;
+  left: 0;
+  top: 0;
   z-index: 2;
-  line-height: 16px; }
+  letter-spacing: 1px;
+  vertical-align: text-bottom;
+  font-family: 'Roboto', sans-serif; }
 
 .backdrop {
   width: 404px;
@@ -41,23 +48,46 @@ body, html {
   overflow: auto;
   position: absolute;
   margin: 0;
-  z-index: 1; }
+  z-index: 1;
+  left: 0;
+  top: 0; }
   .backdrop__highlights {
-    padding-left: 10px;
-    padding-top: 10px;
+    width: 404px;
+    height: 152px;
+    padding-left: 11px;
+    padding-top: 11px;
+    padding-right: 3px;
+    padding-bottom: 3px;
     box-sizing: border-box;
-    font-size: 14.8px;
+    font-size: 14px;
     line-height: 16px;
     white-space: pre-wrap;
     word-wrap: break-word;
-    color: red;
     margin: 0;
-    position: absolute; }
+    position: absolute;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    vertical-align: text-bottom;
+    text-align: start;
+    word-spacing: 0px;
+    text-indent: 0px;
+    text-rendering: auto;
+    font-family: 'Roboto', sans-serif;
+    color: transparent; }
 
 mark {
-  color: red;
-  border-radius: 3px;
+  color: transparent;
+  border-radius: 2px;
   background-color: #7ec0ff;
-  margin: 0; }
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  vertical-align: text-bottom;
+  text-align: start;
+  word-spacing: 0px;
+  text-indent: 0px;
+  text-rendering: auto;
+  font-family: 'Roboto', sans-serif; }
 
 /*# sourceMappingURL=styles.css.map */
