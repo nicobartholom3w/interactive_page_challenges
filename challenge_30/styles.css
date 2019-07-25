@@ -1,0 +1,31 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-family: sans-serif;
+  background-color: #d1d8e0; }
+
+.img {
+  width: 500px;
+  height: 380px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 1px rgba(50, 50, 50, 0.25); }
+  .img__container {
+    height: 380px;
+    width: 500px;
+    margin: 100px auto 0;
+    position: relative;
+    border-radius: 4px; }
+  .img__zoom {
+    height: 200px;
+    width: 200px;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 515px;
+    box-sizing: border-box;
+    border: 2px solid white;
+    box-shadow: 0 1px 6px 2px rgba(50, 50, 50, 0.25); }
+
+/*# sourceMappingURL=styles.css.map */
