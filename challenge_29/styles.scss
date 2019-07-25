@@ -79,7 +79,6 @@ body, html {
 	}
 
 	&__highlights {
-		background-color: pink;
 		max-width: 380px;
 		box-sizing: border-box;
 		overflow-y: scroll;
@@ -93,7 +92,6 @@ body, html {
 		letter-spacing: 1px;
 		font-family: 'Roboto', sans-serif;
 		color: transparent;
-		color: red;
 
 		&::-webkit-scrollbar {
 			width: 5px;
