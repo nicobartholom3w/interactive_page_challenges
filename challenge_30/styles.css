@@ -10,7 +10,9 @@ body, html {
   width: 500px;
   height: 380px;
   border-radius: 4px;
-  box-shadow: 0 1px 2px 1px rgba(50, 50, 50, 0.25); }
+  box-shadow: 0 1px 2px 1px rgba(50, 50, 50, 0.25);
+  position: relative;
+  cursor: zoom-in; }
   .img__container {
     height: 380px;
     width: 500px;
@@ -26,6 +28,25 @@ body, html {
     left: 515px;
     box-sizing: border-box;
     border: 2px solid white;
-    box-shadow: 0 1px 6px 2px rgba(50, 50, 50, 0.25); }
+    box-shadow: 0 1px 6px 2px rgba(50, 50, 50, 0.25);
+    opacity: 0;
+    transition: opacity .1s;
+    cursor: zoom-in; }
+    .img__zoom-active {
+      opacity: 1;
+      cursor: zoom-in; }
+
+.hover__lens {
+  position: absolute;
+  border: 1px solid grey;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: pink;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity .2s; }
+  .hover__lens-active {
+    opacity: 1; }
 
 /*# sourceMappingURL=styles.css.map */

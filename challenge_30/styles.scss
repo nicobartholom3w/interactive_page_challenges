@@ -12,6 +12,8 @@ body, html {
 	height: 380px;
 	border-radius: 4px;
 	box-shadow: 0 1px 2px 1px rgba(50, 50, 50, .25);
+	position: relative;
+	cursor: zoom-in;
 
 	&__container {
 		height: 380px;
@@ -31,5 +33,29 @@ body, html {
 		box-sizing: border-box;
 		border: 2px solid white;
 		box-shadow: 0 1px 6px 2px rgba(50, 50, 50, .25);
+		opacity: 0;
+		transition: opacity .1s;
+		cursor: zoom-in;
+
+		&-active {
+			opacity: 1;
+			cursor: zoom-in;
+		}
+	}
+}
+
+.hover__lens {
+	position: absolute;
+	border: 1px solid grey;
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	background-color: pink;
+	z-index: 3;
+	opacity: 0;
+	transition: opacity .2s;
+
+	&-active {
+		opacity: 1;
 	}
 }
