@@ -3,20 +3,36 @@ document.addEventListener("DOMContentLoaded", function(event){
 	let img = document.querySelector(".img");
 	let imgZoom = document.querySelector(".img__zoom");
 	let lens;
-	let lensDiameter = 20;
-	let imgRect = img.getBoundingClientRect();
+	let lensRadius = 20;
 	let lensActive = false;
+	let zoomX = imgZoom.offsetWidth / (lensRadius * 2);
+	let zoomY = imgZoom.offsetHeight / (lensRadius * 2);
 
 	function moveLens(event) {
+		let imgRect = img.getBoundingClientRect();
 		if(event.target === img) {
 			addLens(event);
 		}
 		if(lensActive) {
-			lens.style.top = event.clientY - imgRect.top - lensDiameter + "px";
-			lens.style.left = event.clientX - imgRect.left - lensDiameter + "px";
 			if(event.clientX <= imgRect.left || event.clientX >= imgRect.right || event.clientY <= imgRect.top || event.clientY >= imgRect.bottom) {
 				removeZoom(event);
 			}
+			let x = event.clientX  - imgRect.left - lensRadius;
+			let y = event.clientY - imgRect.top - lensRadius;
+			lens.style.top = y + "px";
+			lens.style.left = x + "px";
+			
+			console.log("x = " + x * zoomX);
+			console.log("y = " + y * zoomY);
+			let signX = "-";
+			let signY = "-"
+			if(Math.sign(x) === -1) {
+				signX = "";
+			}
+			if(Math.sign(y) === -1) {
+				signY = "";
+			}
+			imgZoom.style.backgroundPosition = signX + (Math.abs(x) * zoomX) + "px " + signY + (Math.abs(y) * zoomY) + "px";
 		}
 	}
 
@@ -28,17 +44,22 @@ document.addEventListener("DOMContentLoaded", function(event){
 		lens = document.createElement("div");
 		lens.classList.add("hover__lens");
 		imgContainer.prepend(lens);
-		imgZoom.classList.add("img__zoom-active");
-		let rect = event.target.getBoundingClientRect();
-		lens.style.top = event.clientY - rect.top - lensDiameter + "px";
-		lens.style.left = event.clientX - rect.left - lensDiameter + "px";
 		lens.classList.add("hover__lens-active");
+
+		let rect = event.target.getBoundingClientRect();
+		lens.style.top = event.clientY - rect.top - lensRadius + "px";
+		lens.style.left = event.clientX - rect.left - lensRadius + "px";
+
+		imgZoom.classList.add("img__zoom-active");
+		imgZoom.style.backgroundSize = (img.offsetWidth * zoomX) + "px " + (img.offsetHeight * zoomY) + "px";
 	}
 
 	function removeZoom(event) {
 		imgZoom.classList.remove("img__zoom-active");
 		lens.classList.remove("hover__lens-active");
 		lensActive = false;
+		// setTimeout(() => {lens.remove()}, 100);
+		lens.remove();
 	}
 
 	document.onmousemove = moveLens;

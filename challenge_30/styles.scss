@@ -36,6 +36,10 @@ body, html {
 		opacity: 0;
 		transition: opacity .1s;
 		cursor: zoom-in;
+		background-image: url("img.jpg");
+		background-repeat: no-repeat;
+		
+
 
 		&-active {
 			opacity: 1;
@@ -50,7 +54,7 @@ body, html {
 	width: 40px;
 	height: 40px;
 	border-radius: 20px;
-	background-color: pink;
+	background: transparent;
 	z-index: 3;
 	opacity: 0;
 	transition: opacity .2s;
